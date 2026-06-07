@@ -40,6 +40,15 @@
 
   button:focus-visible, a:focus-visible { outline: 1px solid #000; outline-offset: 2px; }
 
+  /* GPU-composited card layer */
+  .gallery-card {
+    will-change: transform, opacity;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform-style: flat;
+    transform-style: flat;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
       animation-duration: 0.01ms !important;
@@ -58,17 +67,15 @@
   <script>
   var PROJECTS = [
     { id: "01", title: "AI Systems",            subtitle: "Manchester Airport Hotels - Cinematic films exploring AI.",   client: "MA Hotels",             year: "2025", role: "Creative Direction, Design, CGI", discipline: "CGI",      cover: "assets/covers/MAHOTELS.png",            blurb: "For MA Hotels (Manchester Airport Hotels), we created a cinematic film exploring how robotics and AI may shape the future identity of luxury hospitality. The film imagines how autonomous systems could quietly integrate into the guest experience of tomorrow's hotels." },
-    { id: "02", title: "La Montoya",            subtitle: "Rolex - Precision visualisation.",   client: "Rolex",                 year: "2026", role: "Creative Direction, CGI",          discipline: "CGI",      cover: "assets/covers/ROLEX.png",               blurb: "For Rolex La Montoya, we created a cinematic film celebrating the precision and identity of the F1 x Rolex collaboration watch. The film explores the watch as an object of pure engineering — capturing its material exactness and mechanical soul through controlled light, motion and form." },
-    { id: "03", title: "Demone Della Velocità", subtitle: "Dainese - Developing cinematic visual narratives.", client: "Dainese",               year: "2025", role: "Creative Direction, CGI",          discipline: "CGI",      cover: "assets/covers/DAINESE.png",             blurb: "For Dainese, we created a cinematic visual narrative bringing the brand's bikes, gear, and more to life. Directed, animated, and visualised with precision, the film explores materiality, light, and form, expressing the technical sophistication and identity of the Dainese brand." },
-    { id: "04", title: "Rouge À Lèvres",        subtitle: "Tom Ford - Cinematic animation.",  client: "Tom Ford",              year: "2026", role: "Creative Direction, CGI",          discipline: "CGI",      cover: "assets/covers/TOMFORD.png",             blurb: "We developed cinematic visuals exploring the brand's distinctive language of light, material, and form. Through precise digital visualisation and motion, the piece distils the sensual elegance and clarity that define the Tom Ford identity." },
-    { id: "05", title: "LK001",                 subtitle: "Loho Kur - Defining visual marketing.",                    client: "Loho Kur",              year: "2026", role: "Creative Direction, CGI",          discipline: "CGI",      cover: "assets/covers/LK001.png",               blurb: "For Loho Kur, we brought a new collection and identity to life through cinematic animation, expressing his new collection code system and new direction." },
-    { id: "06", title: "Erosion",               subtitle: "James Jefferys x Zellerfeld - Full product design and campaign.", client: "Zellerfeld",            year: "2025", role: "Creative Direction, Design, CGI", discipline: "CGI",      cover: "assets/covers/EROSION.png",             blurb: "Erosion is a sculptural footwear piece released through Zellerfeld. Drawing inspiration from geological erosion, we designed, animated, and visualised the form, creating a fully digital-to-physical product." },
-    { id: "07", title: "Akan Chief Glasses",    subtitle: "Vic Mensa - 1/1 product design.",                   client: "Vic Mensa",             year: "2025", role: "Creative Direction, Design, CGI", discipline: "Design",   cover: "assets/covers/VICMENSA.png",            blurb: "For Vic Mensa, we designed and engineered a one-of-one pair of gold Akan Chief glasses, precisely modelled to his head. The piece transforms heritage symbolism into a sculptural object, crafted as a powerful expression of personal identity." },
-    { id: "08", title: "Diamond Grill Auction", subtitle: "Sotheby's x Ian Delucca - Visuals to secure auction.",     client: "Sotheby's",             year: "2024", role: "CGI",                              discipline: "CGI",      cover: "assets/covers/SOTHEBYS.png",            blurb: "For Sotheby's, we fully visualised a bespoke diamond grillz piece ahead of physical creation. The work translated the object into a precise digital asset, allowing the piece to be presented, communicated, and valued before it existed. This process enabled a high-stakes sale environment with an estimated valuation of $3–5M, demonstrating how digital visualisation can shape perception and market value around rare objects." },
-    { id: "09", title: "Piza",                  subtitle: "Stephanie Piza - Full brand identity.",              client: "Piza",                  year: "2025", role: "Creative Direction, Brand Identity", discipline: "Identity", cover: "assets/covers/PIZA.png",                blurb: "For Piza, we built the full brand architecture — defining the strategic identity, typography, and visual systems. Designed as a unified structure, the brand projects clarity, confidence, and a commanding presence from launch." },
-    { id: "10", title: "14 Red Door",           subtitle: "14 Red Door - Full brand identity.",                 client: "14 Red Door",           year: "2025", role: "Creative Direction, Brand Identity", discipline: "Identity", cover: "assets/covers/14REDDOOR.png",           blurb: "We created the complete identity for 14 Red Door — from naming and brand architecture to typography and visual language. Inspired by a fragmented childhood memory of a home long forgotten, the identity centres on the symbolism of a door: a threshold between the known and unknown, representing possibility and the idea that something powerful may exist beyond what is visible." },
-    { id: "11", title: "Setting Sun",           subtitle: "Hikari no Yami - Campaign imagery.",              client: "Hikari no Yami",        year: "2025", role: "Creative Direction",               discipline: "Direction",cover: "assets/covers/SETTINGSUN.png",          blurb: "We directed Chapter 8 of the campaign through a refined visual identity system — delivering cohesive, high-impact graphics that strengthened narrative continuity and brand distinction." },
-    { id: "12", title: "Studio James Jefferys", subtitle: "James Jefferys - Website design and development.",              client: "Studio James Jefferys", year: "2026", role: "Creative Direction, Web Design",   discipline: "Web",      cover: "assets/covers/STUDIOJAMESJEFFERYS.png", blurb: "We created a single-surface interface designed to function as a singular digital skin. Inspired by the idea that the most intuitive interface is the human body, the system reduces interaction to its essential elements — exploring subtraction as a method for clarity and control." }
+    { id: "02", title: "Demone Della Velocità", subtitle: "Dainese - Developing cinematic visual narratives.", client: "Dainese",               year: "2025", role: "Creative Direction, CGI",          discipline: "CGI",      cover: "assets/covers/DAINESE.png",             blurb: "For Dainese, we created a cinematic visual narrative bringing the brand's bikes, gear, and more to life. Directed, animated, and visualised with precision, the film explores materiality, light, and form, expressing the technical sophistication and identity of the Dainese brand." },
+    { id: "03", title: "LK001",                 subtitle: "Loho Kur - Defining visual marketing.",                    client: "Loho Kur",              year: "2026", role: "Creative Direction, CGI",          discipline: "CGI",      cover: "assets/covers/LK001.png",               blurb: "For Loho Kur, we brought a new collection and identity to life through cinematic animation, expressing his new collection code system and new direction." },
+    { id: "04", title: "Erosion",               subtitle: "James Jefferys x Zellerfeld - Full product design and campaign.", client: "Zellerfeld",            year: "2025", role: "Creative Direction, Design, CGI", discipline: "CGI",      cover: "assets/covers/EROSION.png",             blurb: "Erosion is a sculptural footwear piece released through Zellerfeld. Drawing inspiration from geological erosion, we designed, animated, and visualised the form, creating a fully digital-to-physical product." },
+    { id: "05", title: "Akan Chief Glasses",    subtitle: "Vic Mensa - 1/1 product design.",                   client: "Vic Mensa",             year: "2025", role: "Creative Direction, Design, CGI", discipline: "Design",   cover: "assets/covers/VICMENSA.png",            blurb: "For Vic Mensa, we designed and engineered a one-of-one pair of gold Akan Chief glasses, precisely modelled to his head. The piece transforms heritage symbolism into a sculptural object, crafted as a powerful expression of personal identity." },
+    { id: "06", title: "Diamond Grill Auction", subtitle: "Sotheby's x Ian Delucca - Visuals to secure auction.",     client: "Sotheby's",             year: "2024", role: "CGI",                              discipline: "CGI",      cover: "assets/covers/SOTHEBYS.png",            blurb: "For Sotheby's, we fully visualised a bespoke diamond grillz piece ahead of physical creation. The work translated the object into a precise digital asset, allowing the piece to be presented, communicated, and valued before it existed. This process enabled a high-stakes sale environment with an estimated valuation of $3–5M, demonstrating how digital visualisation can shape perception and market value around rare objects." },
+    { id: "07", title: "Piza",                  subtitle: "Stephanie Piza - Full brand identity.",              client: "Piza",                  year: "2025", role: "Creative Direction, Brand Identity", discipline: "Identity", cover: "assets/covers/PIZA.png",                blurb: "For Piza, we built the full brand architecture — defining the strategic identity, typography, and visual systems. Designed as a unified structure, the brand projects clarity, confidence, and a commanding presence from launch." },
+    { id: "08", title: "14 Red Door",           subtitle: "14 Red Door - Full brand identity.",                 client: "14 Red Door",           year: "2025", role: "Creative Direction, Brand Identity", discipline: "Identity", cover: "assets/covers/14REDDOOR.png",           blurb: "We created the complete identity for 14 Red Door — from naming and brand architecture to typography and visual language. Inspired by a fragmented childhood memory of a home long forgotten, the identity centres on the symbolism of a door: a threshold between the known and unknown, representing possibility and the idea that something powerful may exist beyond what is visible." },
+    { id: "09", title: "Setting Sun",           subtitle: "Hikari no Yami - Campaign imagery.",              client: "Hikari no Yami",        year: "2025", role: "Creative Direction",               discipline: "Direction",cover: "assets/covers/SETTINGSUN.png",          blurb: "We directed Chapter 8 of the campaign through a refined visual identity system — delivering cohesive, high-impact graphics that strengthened narrative continuity and brand distinction." },
+    { id: "10", title: "Studio James Jefferys", subtitle: "James Jefferys - Website design and development.",              client: "Studio James Jefferys", year: "2026", role: "Creative Direction, Web Design",   discipline: "Web",      cover: "assets/covers/STUDIOJAMESJEFFERYS.png", blurb: "We created a single-surface interface designed to function as a singular digital skin. Inspired by the idea that the most intuitive interface is the human body, the system reduces interaction to its essential elements — exploring subtraction as a method for clarity and control." }
   ];
   function coverBg(project) {
     return "#f2efe9 url(\"" + project.cover + "\") center/cover no-repeat";
@@ -83,38 +90,117 @@
     function isMobile() { return window.innerWidth <= 768; }
 
     /* ===================== GALLERY ===================== */
+    /* Performance-critical: uses refs + direct DOM updates instead of
+       React state for the animation loop. This avoids re-rendering
+       10 cards × 60fps = 600 React diffs/second which kills Safari. */
     function Gallery({ projects, onEnter }) {
       const n = projects.length;
-      const [progress, setProgress] = useState(0);
       const [hoverIdx, setHoverIdx] = useState(null);
-      const [mouse, setMouse] = useState({ x: 0.5, y: 0.5 });
       const [entering, setEntering] = useState(null);
 
+      const progressRef = useRef(0);
       const targetRef = useRef(0);
+      const mouseRef = useRef({ x: 0.5, y: 0.5 });
+      const hoverRef = useRef(null);
       const rafRef = useRef(null);
       const stageRef = useRef(null);
+      const wrapperRef = useRef(null);
+      const cardRefs = useRef([]);
+      const bannerRef = useRef(null);
+      const bannerTitleRef = useRef(null);
+      const bannerSubRef = useRef(null);
+      const lastBannerIdx = useRef(-1);
 
-      const cardW = isMobile() ? 280 : 520;
-      const cardH = isMobile() ? 183 : 340;
-      const spreadX = isMobile() ? 200 : 360;
+      const mobile = isMobile();
+      const cardW = mobile ? 280 : 520;
+      const cardH = mobile ? 183 : 340;
+      const spreadX = mobile ? 200 : 360;
 
+      // Keep hoverRef in sync
+      useEffect(() => { hoverRef.current = hoverIdx; }, [hoverIdx]);
+
+      // Main animation loop — direct DOM updates, no React state
       useEffect(() => {
-        const tick = () => {
-          setProgress((p) => {
-            const delta = targetRef.current - p;
-            if (Math.abs(delta) < 0.0005) return targetRef.current;
-            return p + delta * 0.11;
-          });
+        if (entering) return;
+        var last = performance.now();
+        const tick = (t) => {
+          var dt = Math.min(64, t - last); last = t;
+
+          // Mouse-driven auto-scroll (desktop only)
+          if (!mobile && hoverRef.current == null) {
+            var mx = mouseRef.current.x;
+            var dx = mx - 0.5;
+            var sign = dx > 0 ? 1 : (dx < 0 ? -1 : 0);
+            var mag = Math.max(0, Math.abs(dx) - 0.28);
+            var velocity = sign * mag * mag * 3.0;
+            if (mag > 0) {
+              targetRef.current = Math.max(0, Math.min(n - 1, targetRef.current + velocity * (dt / 1000)));
+            }
+          }
+
+          // Smooth progress lerp
+          var delta = targetRef.current - progressRef.current;
+          if (Math.abs(delta) > 0.0005) {
+            progressRef.current += delta * 0.11;
+          } else {
+            progressRef.current = targetRef.current;
+          }
+
+          var progress = progressRef.current;
+
+          // Parallax on wrapper (desktop only)
+          if (!mobile && wrapperRef.current) {
+            var mx2 = mouseRef.current.x, my2 = mouseRef.current.y;
+            wrapperRef.current.style.transform =
+              "translate3d(" + ((mx2 - 0.5) * 28) + "px, " + ((my2 - 0.5) * 18) + "px, 0) rotateX(" + (-(my2 - 0.5) * 8) + "deg) rotateY(" + ((mx2 - 0.5) * 12) + "deg)";
+          }
+
+          // Update each card transform directly
+          var activeIdx = hoverRef.current != null ? hoverRef.current : Math.max(0, Math.min(n - 1, Math.round(progress)));
+          for (var i = 0; i < n; i++) {
+            var el = cardRefs.current[i];
+            if (!el) continue;
+            var o = i - progress;
+            var x = o * spreadX;
+            var y = ((((i % n) + n) % n) * 53) % 130 - 65 + o * 6;
+            var z = -Math.abs(o) * (mobile ? 150 : 220);
+            var rot = Math.sin(i * 1.3) * 3.2;
+            var opacity = Math.abs(o) > 5 ? 0 : 1;
+            var baseZ = 1000 - Math.abs(Math.round(o * 10));
+
+            var cardCenterX = 0.5 + (i - progress) * 0.18;
+            var distToMouse = Math.abs(cardCenterX - mouseRef.current.x);
+            var proximityZ = Math.round(500 - distToMouse * 1000);
+
+            el.style.transform = "translate3d(calc(-50% + " + x + "px), calc(-50% + " + y + "px), " + z + "px) rotate(" + rot + "deg)";
+            el.style.opacity = opacity;
+            el.style.zIndex = (hoverRef.current === i ? 3000 : proximityZ + baseZ);
+          }
+
+          // Update banner text (only when active project changes)
+          if (activeIdx !== lastBannerIdx.current) {
+            lastBannerIdx.current = activeIdx;
+            var proj = projects[activeIdx];
+            if (bannerSubRef.current) bannerSubRef.current.textContent = proj.subtitle || proj.client;
+            if (bannerTitleRef.current) {
+              bannerTitleRef.current.textContent = proj.title;
+              bannerTitleRef.current.style.animation = "none";
+              bannerTitleRef.current.offsetHeight; // force reflow
+              bannerTitleRef.current.style.animation = "rise 0.55s cubic-bezier(.2,.7,.2,1)";
+            }
+          }
+
           rafRef.current = requestAnimationFrame(tick);
         };
         rafRef.current = requestAnimationFrame(tick);
         return () => cancelAnimationFrame(rafRef.current);
-      }, []);
+      }, [entering, n, mobile, spreadX, projects]);
 
+      // Wheel
       useEffect(() => {
         if (entering) return;
-        const el = stageRef.current; if (!el) return;
-        const onWheel = (e) => {
+        var el = stageRef.current; if (!el) return;
+        var onWheel = function(e) {
           e.preventDefault();
           targetRef.current = Math.max(0, Math.min(n - 1, targetRef.current + (e.deltaY + e.deltaX) * 0.0025));
         };
@@ -122,33 +208,35 @@
         return () => el.removeEventListener("wheel", onWheel);
       }, [entering, n]);
 
+      // Keyboard
       useEffect(() => {
         if (entering) return;
-        const onKey = (e) => {
+        var onKey = function(e) {
           if (e.key === "ArrowRight" || e.key === "ArrowDown") targetRef.current = Math.min(n - 1, Math.round(targetRef.current) + 1);
           else if (e.key === "ArrowLeft" || e.key === "ArrowUp") targetRef.current = Math.max(0, Math.round(targetRef.current) - 1);
-          else if (e.key === "Enter") onEnter(projects[Math.max(0, Math.min(n - 1, Math.round(progress)))]);
+          else if (e.key === "Enter") onEnter(projects[Math.max(0, Math.min(n - 1, Math.round(progressRef.current)))]);
         };
         window.addEventListener("keydown", onKey);
         return () => window.removeEventListener("keydown", onKey);
-      }, [entering, onEnter, projects, progress, n]);
+      }, [entering, onEnter, projects, n]);
 
+      // Drag / touch
       useEffect(() => {
         if (entering) return;
-        const el = stageRef.current; if (!el) return;
+        var el = stageRef.current; if (!el) return;
         var startX = 0, startProg = 0, dragging = false;
-        const onDown = (e) => {
+        var onDown = function(e) {
           dragging = true;
           startX = e.clientX != null ? e.clientX : (e.touches && e.touches[0] ? e.touches[0].clientX : 0);
           startProg = targetRef.current;
         };
-        const onMove = (e) => {
+        var onMove = function(e) {
           if (!dragging) return;
-          const x = e.clientX != null ? e.clientX : (e.touches && e.touches[0] ? e.touches[0].clientX : 0);
-          const dx = startX - x;
+          var x = e.clientX != null ? e.clientX : (e.touches && e.touches[0] ? e.touches[0].clientX : 0);
+          var dx = startX - x;
           targetRef.current = Math.max(0, Math.min(n - 1, startProg + dx * 0.006));
         };
-        const onUp = () => { dragging = false; };
+        var onUp = function() { dragging = false; };
         el.addEventListener("mousedown", onDown);
         window.addEventListener("mousemove", onMove);
         window.addEventListener("mouseup", onUp);
@@ -165,66 +253,21 @@
         };
       }, [entering, n]);
 
+      // Mouse position (ref only, no state)
       useEffect(() => {
-        const el = stageRef.current; if (!el) return;
-        const onMove = (e) => {
-          const r = el.getBoundingClientRect();
-          const nx = (e.clientX - r.left) / r.width;
-          const ny = (e.clientY - r.top) / r.height;
-          setMouse({ x: nx, y: ny });
+        var el = stageRef.current; if (!el) return;
+        var onMove = function(e) {
+          var r = el.getBoundingClientRect();
+          mouseRef.current = { x: (e.clientX - r.left) / r.width, y: (e.clientY - r.top) / r.height };
         };
         el.addEventListener("mousemove", onMove);
         return () => el.removeEventListener("mousemove", onMove);
       }, []);
 
-      useEffect(() => {
-        if (entering || isMobile()) return;
-        var last = performance.now();
-        var raf;
-        const step = (t) => {
-          const dt = Math.min(64, t - last); last = t;
-          const paused = hoverIdx != null;
-          if (!paused) {
-            const dx = mouse.x - 0.5;
-            const sign = Math.sign(dx);
-            const mag = Math.max(0, Math.abs(dx) - 0.28);
-            const velocity = sign * mag * mag * 3.0;
-            if (mag > 0) {
-              targetRef.current = Math.max(0, Math.min(n - 1, targetRef.current + velocity * (dt / 1000)));
-            }
-          }
-          raf = requestAnimationFrame(step);
-        };
-        raf = requestAnimationFrame(step);
-        return () => cancelAnimationFrame(raf);
-      }, [mouse.x, entering, n, hoverIdx]);
-
-      const baseActiveIdx = Math.max(0, Math.min(n - 1, Math.round(progress)));
-      const activeIdx = hoverIdx != null ? hoverIdx : baseActiveIdx;
-      const active = projects[activeIdx];
-
-      const handleEnter = (project) => {
+      var handleEnter = function(project) {
         setEntering(project);
-        setTimeout(() => onEnter(project), 900);
+        setTimeout(function() { onEnter(project); }, 900);
       };
-
-      const cardTransform = (v) => {
-        const o = v - progress;
-        const x = o * spreadX;
-        const y = ((((v % n) + n) % n) * 53) % 130 - 65 + o * 6;
-        const z = -Math.abs(o) * (isMobile() ? 150 : 220);
-        const rot = Math.sin(v * 1.3) * 3.2;
-        return {
-          transform: "translate3d(calc(-50% + " + x + "px), calc(-50% + " + y + "px), " + z + "px) rotate(" + rot + "deg)",
-          opacity: Math.abs(o) > 5 ? 0 : 1,
-          zIndex: 1000 - Math.abs(Math.round(o * 10))
-        };
-      };
-
-      const mobile = isMobile();
-      const parallaxTransform = mobile
-        ? "none"
-        : "translate3d(" + ((mouse.x - 0.5) * 28) + "px, " + ((mouse.y - 0.5) * 18) + "px, 0) rotateX(" + (-(mouse.y - 0.5) * 8) + "deg) rotateY(" + ((mouse.x - 0.5) * 12) + "deg)";
 
       return (
         <div
@@ -232,148 +275,117 @@
           style={{
             position: "fixed", inset: 0,
             background: "var(--bg)",
-            perspective: isMobile() ? "1200px" : "1800px",
+            perspective: mobile ? "1200px" : "1800px",
             perspectiveOrigin: "50% 50%",
             overflow: "hidden",
             userSelect: "none",
             touchAction: "none"
           }}
         >
-          <div style={{
-            position: "absolute", inset: 0, transformStyle: "preserve-3d",
-            transform: parallaxTransform,
+          <div ref={wrapperRef} style={{
+            position: "absolute", inset: 0,
+            WebkitTransformStyle: "preserve-3d",
+            transformStyle: "preserve-3d",
             transition: mobile ? "none" : "transform 0.5s cubic-bezier(.2,.7,.2,1)",
             pointerEvents: "none"
           }}>
-            {projects.map((p, i) => {
-              const t = cardTransform(i);
-              const isHover = hoverIdx === i;
-              const isActive = i === activeIdx;
-              const isEntering = entering && entering.id === p.id;
+            {projects.map(function(p, i) {
+              var isEntering = entering && entering.id === p.id;
 
-              const cardCenterX = 0.5 + (i - progress) * 0.18;
-              const distToMouse = Math.abs(cardCenterX - mouse.x);
-              const proximityZ = Math.round(500 - distToMouse * 1000);
-
-              const enterStyle = isEntering ? {
+              var enterStyle = isEntering ? {
                 transform: "translate3d(-50%, -50%, 500px) scale(2)",
                 opacity: 0,
                 transition: "transform 0.9s cubic-bezier(.6,.02,.2,1), opacity 0.9s"
-              } : {
-                transition: entering
-                  ? "opacity 0.35s"
-                  : "transform 0.5s cubic-bezier(.2,.7,.2,1), opacity 0.4s",
-                opacity: entering ? 0 : t.opacity
-              };
+              } : entering ? {
+                opacity: 0,
+                transition: "opacity 0.35s"
+              } : {};
 
               return (
-                <Card
+                <div
                   key={p.id}
-                  project={p}
-                  hovered={isHover}
-                  active={isActive}
-                  cardW={cardW}
-                  cardH={cardH}
-                  onHover={(on) => setHoverIdx(on ? i : (cur) => (cur === i ? null : cur))}
-                  onClick={() => handleEnter(p)}
+                  ref={function(el) { cardRefs.current[i] = el; }}
+                  className="gallery-card"
+                  onMouseEnter={function() { setHoverIdx(i); }}
+                  onMouseLeave={function() { setHoverIdx(function(cur) { return cur === i ? null : cur; }); }}
+                  onClick={function() { handleEnter(p); }}
                   style={{
                     position: "absolute", left: "50%", top: "50%",
+                    width: cardW, height: cardH,
                     pointerEvents: "auto",
-                    ...t, ...enterStyle,
-                    zIndex: isEntering ? 9999 : (isHover ? 3000 : proximityZ + t.zIndex)
+                    cursor: "pointer",
+                    zIndex: isEntering ? 9999 : 1000,
+                    ...enterStyle
                   }}
-                />
+                >
+                  <div style={{
+                    position: "relative", width: "100%", height: "100%",
+                    transform: hoverIdx === i ? "scale(1.02)" : "scale(1)",
+                    transition: "transform 0.4s"
+                  }}>
+                    {/* Tinted shadow — desktop only, reduced blur for Safari */}
+                    {!mobile && <img
+                      src={p.cover}
+                      alt=""
+                      aria-hidden="true"
+                      draggable="false"
+                      style={{
+                        position: "absolute", inset: 0,
+                        width: "100%", height: "100%",
+                        objectFit: "contain",
+                        filter: "blur(20px) saturate(1.1) brightness(0.92)",
+                        opacity: (hoverIdx === i || (!entering && i === Math.max(0, Math.min(n - 1, Math.round(progressRef.current))))) ? 0.5 : 0.28,
+                        transform: "translateY(28px) scale(0.96) translateZ(0)",
+                        pointerEvents: "none",
+                        WebkitBackfaceVisibility: "hidden"
+                      }}
+                    />}
+                    <img
+                      src={p.cover}
+                      alt={p.title}
+                      draggable="false"
+                      style={{
+                        position: "absolute", inset: 0,
+                        width: "100%", height: "100%",
+                        objectFit: "contain",
+                        transform: "translateZ(0)",
+                        userSelect: "none",
+                        WebkitUserDrag: "none",
+                        WebkitBackfaceVisibility: "hidden"
+                      }}
+                    />
+                  </div>
+                </div>
               );
             })}
           </div>
 
-          <ActiveBanner project={active} entering={!!entering} />
-        </div>
-      );
-    }
-
-    /* ===================== CARD ===================== */
-    function Card({ project, hovered, active, onHover, onClick, style, cardW, cardH }) {
-      return (
-        <div
-          onMouseEnter={() => onHover(true)}
-          onMouseLeave={() => onHover(false)}
-          onClick={onClick}
-          style={{
-            width: cardW, height: cardH,
-            ...style,
-            cursor: "pointer"
-          }}
-        >
-          <div style={{
-            position: "relative", width: "100%", height: "100%",
-            transform: hovered ? "scale(1.02)" : "scale(1)",
-            transition: "transform 0.4s"
+          {/* Active project title — top/bottom center */}
+          <div ref={bannerRef} style={{
+            position: "absolute", left: "50%",
+            top: mobile ? "auto" : 96,
+            bottom: mobile ? 48 : "auto",
+            transform: "translateX(-50%)",
+            textAlign: "center", opacity: entering ? 0 : 1, transition: "opacity 0.4s",
+            pointerEvents: "none", maxWidth: "90vw", width: "100%",
+            padding: "0 16px", boxSizing: "border-box"
           }}>
-            <img
-              src={project.cover}
-              alt=""
-              aria-hidden="true"
-              draggable="false"
-              style={{
-                position: "absolute", inset: 0,
-                width: "100%", height: "100%",
-                objectFit: "contain",
-                filter: "blur(34px) saturate(1.15) brightness(0.92)",
-                opacity: active ? 0.55 : 0.32,
-                transform: "translateY(28px) scale(0.96)",
-                transition: "opacity 0.4s",
-                pointerEvents: "none"
-              }}
-            />
-            <img
-              src={project.cover}
-              alt={project.title}
-              draggable="false"
-              style={{
-                position: "absolute", inset: 0,
-                width: "100%", height: "100%",
-                objectFit: "contain",
-                filter: active ? "saturate(1) brightness(1)" : "saturate(0.96) brightness(0.98)",
-                transition: "filter 0.4s",
-                userSelect: "none",
-                WebkitUserDrag: "none"
-              }}
-            />
+            <div ref={bannerSubRef} style={{
+              fontFamily: "var(--sans)", fontSize: mobile ? 11 : 12, letterSpacing: "0.02em",
+              color: "var(--fg-dim)", marginBottom: mobile ? 10 : 14, fontWeight: 400
+            }}>
+              {projects[0].subtitle}
+            </div>
+            <h1 ref={bannerTitleRef} style={{
+              fontFamily: "var(--sans)", fontWeight: 400,
+              fontSize: mobile ? "clamp(28px, 8vw, 44px)" : "clamp(44px, 6vw, 88px)",
+              lineHeight: 0.95, letterSpacing: "-0.03em", margin: 0,
+              color: "var(--fg)",
+              animation: "rise 0.55s cubic-bezier(.2,.7,.2,1)"
+            }}>
+              {projects[0].title}
+            </h1>
           </div>
-        </div>
-      );
-    }
-
-    /* ===================== ACTIVE BANNER ===================== */
-    function ActiveBanner({ project, entering }) {
-      if (!project) return null;
-      const mobile = isMobile();
-      return (
-        <div style={{
-          position: "absolute", left: "50%",
-          top: mobile ? "auto" : 96,
-          bottom: mobile ? 48 : "auto",
-          transform: "translateX(-50%)",
-          textAlign: "center", opacity: entering ? 0 : 1, transition: "opacity 0.4s",
-          pointerEvents: "none", maxWidth: "90vw", width: "100%",
-          padding: "0 16px", boxSizing: "border-box"
-        }}>
-          <div style={{
-            fontFamily: "var(--sans)", fontSize: mobile ? 11 : 12, letterSpacing: "0.02em",
-            color: "var(--fg-dim)", marginBottom: mobile ? 10 : 14, fontWeight: 400
-          }}>
-            {project.subtitle || project.client}
-          </div>
-          <h1 key={project.id} style={{
-            fontFamily: "var(--sans)", fontWeight: 400,
-            fontSize: mobile ? "clamp(28px, 8vw, 44px)" : "clamp(44px, 6vw, 88px)",
-            lineHeight: 0.95, letterSpacing: "-0.03em", margin: 0,
-            color: "var(--fg)",
-            animation: "rise 0.55s cubic-bezier(.2,.7,.2,1)"
-          }}>
-            {project.title}
-          </h1>
         </div>
       );
     }
@@ -383,16 +395,16 @@
       const [mounted, setMounted] = useState(false);
       const mobile = isMobile();
       useEffect(() => {
-        const t = setTimeout(() => setMounted(true), 30);
+        var t = setTimeout(function() { setMounted(true); }, 30);
         return () => clearTimeout(t);
       }, []);
       useEffect(() => {
-        const el = document.getElementById("detail-scroll");
+        var el = document.getElementById("detail-scroll");
         if (el) el.scrollTop = 0;
       }, [project.id]);
 
-      const nextIdx = (allProjects.findIndex((p) => p.id === project.id) + 1) % allProjects.length;
-      const next = allProjects[nextIdx];
+      var nextIdx = (allProjects.findIndex(function(p) { return p.id === project.id; }) + 1) % allProjects.length;
+      var next = allProjects[nextIdx];
 
       return (
         <div id="detail-scroll" style={{
@@ -411,8 +423,9 @@
                 width: "100%", height: "100%",
                 objectFit: "contain",
                 background: "#f2efe9",
-                transform: mounted ? "scale(1)" : "scale(1.15)",
-                transition: "transform 1.6s cubic-bezier(.2,.7,.2,1)"
+                transform: mounted ? "scale(1) translateZ(0)" : "scale(1.15) translateZ(0)",
+                transition: "transform 1.6s cubic-bezier(.2,.7,.2,1)",
+                WebkitBackfaceVisibility: "hidden"
               }}
             />
             <div style={{
@@ -507,7 +520,7 @@
           </section>
 
           {/* Next project */}
-          <section onClick={() => onNext(next)} style={{
+          <section onClick={function() { onNext(next); }} style={{
             position: "relative", height: mobile ? "50vh" : "70vh", cursor: "pointer", overflow: "hidden",
             borderTop: "1px solid var(--line)"
           }}>
@@ -578,59 +591,74 @@
     }
 
     /* ===================== NAV ===================== */
-    function Nav({ onOpenIndex, onNav, page }) {
+    function Nav({ onNav, page }) {
       const mobile = isMobile();
+      const [menuOpen, setMenuOpen] = useState(false);
       return (
-        <nav style={{
-          position: "fixed", top: 0, left: 0, right: 0, zIndex: 50,
-          padding: mobile ? "20px 16px" : "28px 32px",
-          display: "flex", alignItems: "center",
-          justifyContent: "space-between", pointerEvents: "none"
-        }}>
-          <a href="#" onClick={(e) => { e.preventDefault(); onNav("projects"); }} style={{
-            display: "flex", alignItems: "center", gap: 8, pointerEvents: "auto", cursor: "pointer",
-            fontFamily: "var(--sans)", fontWeight: 500, fontSize: mobile ? 14 : 16,
-            letterSpacing: "-0.01em", color: "var(--fg)", textDecoration: "none"
+        <>
+          <nav style={{
+            position: "fixed", top: 0, left: 0, right: 0, zIndex: 50,
+            padding: mobile ? "20px 16px" : "28px 32px",
+            display: "flex", alignItems: "center",
+            justifyContent: "space-between", pointerEvents: "none"
           }}>
-            <span style={{ display: "inline-block", width: 8, height: 8, background: "var(--fg)", borderRadius: "50%" }}/>
-            Vector Studio
-          </a>
-          {!mobile && (
-            <div style={{
-              display: "flex", alignItems: "center", gap: 28, pointerEvents: "auto",
-              fontFamily: "var(--sans)", fontSize: 13, letterSpacing: "0.01em",
-              color: "var(--fg)", fontWeight: 400
+            <a href="#" onClick={function(e) { e.preventDefault(); onNav("projects"); setMenuOpen(false); }} style={{
+              display: "flex", alignItems: "center", gap: 8, pointerEvents: "auto", cursor: "pointer",
+              fontFamily: "var(--sans)", fontWeight: 500, fontSize: mobile ? 14 : 16,
+              letterSpacing: "-0.01em", color: "var(--fg)", textDecoration: "none"
             }}>
-              <NavLink active={page === "projects"} label="Projects" onClick={() => onNav("projects")} />
-              <NavLink active={page === "studio"}   label="Studio"   onClick={() => onNav("studio")} />
-              <NavLink active={page === "contact"}  label="Contact"  onClick={() => onNav("contact")} />
-              <span style={{ width: 1, height: 14, background: "var(--line)" }}/>
-              <button onClick={onOpenIndex} style={{
+              <span style={{ display: "inline-block", width: 8, height: 8, background: "var(--fg)", borderRadius: "50%" }}/>
+              Vector Studio
+            </a>
+            {!mobile && (
+              <div style={{
+                display: "flex", alignItems: "center", gap: 28, pointerEvents: "auto",
+                fontFamily: "var(--sans)", fontSize: 13, letterSpacing: "0.01em",
+                color: "var(--fg)", fontWeight: 400
+              }}>
+                <NavLink active={page === "projects"} label="Projects" onClick={function() { onNav("projects"); }} />
+                <NavLink active={page === "studio"}   label="Studio"   onClick={function() { onNav("studio"); }} />
+                <NavLink active={page === "contact"}  label="Contact"  onClick={function() { onNav("contact"); }} />
+              </div>
+            )}
+            {mobile && (
+              <button onClick={function() { setMenuOpen(!menuOpen); }} style={{
                 background: "transparent", border: "1px solid var(--fg)",
-                color: "var(--fg)", fontFamily: "var(--sans)", fontSize: 12,
+                color: "var(--fg)", fontFamily: "var(--sans)", fontSize: 11,
                 letterSpacing: "0.01em", fontWeight: 400,
-                padding: "8px 14px", cursor: "pointer", borderRadius: 2
-              }}>Index</button>
+                padding: "7px 12px", cursor: "pointer", borderRadius: 2,
+                pointerEvents: "auto"
+              }}>{menuOpen ? "Close" : "Menu"}</button>
+            )}
+          </nav>
+          {mobile && menuOpen && (
+            <div style={{
+              position: "fixed", inset: 0, zIndex: 45,
+              background: "rgba(255,255,255,0.97)",
+              display: "flex", flexDirection: "column",
+              justifyContent: "center", alignItems: "center", gap: 28,
+              animation: "fadeIn 0.2s"
+            }}>
+              {["Projects", "Studio", "Contact"].map(function(label) { return (
+                <a key={label} href="#" onClick={function(e) { e.preventDefault(); setMenuOpen(false); onNav(label.toLowerCase()); }}
+                  style={{
+                    fontFamily: "var(--sans)", fontSize: 36, fontWeight: 400,
+                    letterSpacing: "-0.02em", color: "var(--fg)", textDecoration: "none"
+                  }}>
+                  {label}
+                </a>
+              ); })}
             </div>
           )}
-          {mobile && (
-            <button onClick={onOpenIndex} style={{
-              background: "transparent", border: "1px solid var(--fg)",
-              color: "var(--fg)", fontFamily: "var(--sans)", fontSize: 11,
-              letterSpacing: "0.01em", fontWeight: 400,
-              padding: "7px 12px", cursor: "pointer", borderRadius: 2,
-              pointerEvents: "auto"
-            }}>Menu</button>
-          )}
-        </nav>
+        </>
       );
     }
 
     function NavLink({ label, active, onClick }) {
       const [hover, setHover] = useState(false);
       return (
-        <a href="#" onClick={(e) => { e.preventDefault(); onClick && onClick(); }}
-          onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}
+        <a href="#" onClick={function(e) { e.preventDefault(); onClick && onClick(); }}
+          onMouseEnter={function() { setHover(true); }} onMouseLeave={function() { setHover(false); }}
           style={{
             color: active || hover ? "var(--fg)" : "var(--fg-dim)",
             textDecoration: "none", position: "relative", display: "inline-block",
@@ -790,9 +818,9 @@
       const [hidden, setHidden] = useState(false);
       useEffect(() => {
         var p = 0;
-        const id = setInterval(() => {
+        var id = setInterval(function() {
           p += Math.max(1, Math.round(Math.random() * 9));
-          if (p >= 100) { p = 100; clearInterval(id); setTimeout(() => { setHidden(true); onDone && onDone(); }, 450); }
+          if (p >= 100) { p = 100; clearInterval(id); setTimeout(function() { setHidden(true); onDone && onDone(); }, 450); }
           setPct(p);
         }, 70);
         return () => clearInterval(id);
@@ -824,104 +852,8 @@
             <div style={{
               marginTop: 16, fontFamily: "var(--sans)", fontSize: 11, letterSpacing: "0.02em",
               color: "var(--fg-dim)", fontWeight: 400
-            }}>Loading · 12 projects · 2026</div>
+            }}>Loading · 10 projects · 2026</div>
           </div>
-        </div>
-      );
-    }
-
-    /* ===================== INDEX OVERLAY ===================== */
-    function IndexOverlay({ projects, onClose, onPick, onNav }) {
-      const mobile = isMobile();
-      return (
-        <div style={{
-          position: "fixed", inset: 0, zIndex: 80,
-          background: "rgba(255,255,255,0.95)", backdropFilter: "blur(14px)", WebkitBackdropFilter: "blur(14px)",
-          animation: "fadeIn 0.3s"
-        }}>
-          <div style={{ position: "absolute", inset: 0, padding: mobile ? "80px 20px 40px" : "120px 40px 60px", overflow: "auto", WebkitOverflowScrolling: "touch" }}>
-            {mobile && (
-              <div style={{ marginBottom: 40, display: "flex", flexDirection: "column", gap: 20 }}>
-                {["Projects", "Studio", "Contact"].map(function(label) { return (
-                  <a key={label} href="#" onClick={function(e) { e.preventDefault(); onClose(); onNav(label.toLowerCase()); }}
-                    style={{
-                      fontFamily: "var(--sans)", fontSize: 32, fontWeight: 400,
-                      letterSpacing: "-0.02em", color: "var(--fg)", textDecoration: "none"
-                    }}>
-                    {label}
-                  </a>
-                ); })}
-                <div style={{ height: 1, background: "var(--line)", margin: "12px 0" }} />
-              </div>
-            )}
-            <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", marginBottom: mobile ? 24 : 40 }}>
-              <div style={{
-                fontFamily: "var(--sans)", fontSize: 12, letterSpacing: "0.02em",
-                color: "var(--fg-dim)", fontWeight: 400
-              }}>Project Index — {String(projects.length).padStart(2, "0")} works</div>
-              <button onClick={onClose} style={{
-                background: "transparent", border: "1px solid var(--fg)",
-                color: "var(--fg)", fontFamily: "var(--sans)", fontSize: 12,
-                letterSpacing: "0.01em", fontWeight: 400,
-                padding: "8px 14px", cursor: "pointer", borderRadius: 2
-              }}>Close ✕</button>
-            </div>
-            <div>
-              {projects.map(function(p, i) { return (
-                <IndexRow key={p.id} project={p} onClick={function() { onPick(i); }} mobile={mobile} />
-              ); })}
-            </div>
-          </div>
-        </div>
-      );
-    }
-
-    function IndexRow({ project, onClick, mobile }) {
-      const [hover, setHover] = useState(false);
-      if (mobile) {
-        return (
-          <div onClick={onClick} style={{
-            padding: "18px 0", cursor: "pointer",
-            borderTop: "1px solid var(--line)"
-          }}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 4 }}>
-              <div style={{ fontFamily: "var(--sans)", fontSize: 11, color: "var(--fg-dim)" }}>{project.id}</div>
-              <div style={{ fontFamily: "var(--sans)", fontSize: 11, color: "var(--fg-dim)" }}>{project.year}</div>
-            </div>
-            <div style={{
-              fontFamily: "var(--sans)", fontSize: 22, letterSpacing: "-0.02em", fontWeight: 400,
-              color: "var(--fg)"
-            }}>{project.title}</div>
-            <div style={{ fontFamily: "var(--sans)", fontSize: 12, color: "var(--fg-dim)", marginTop: 4 }}>{project.discipline}</div>
-          </div>
-        );
-      }
-      return (
-        <div onMouseEnter={function() { setHover(true); }} onMouseLeave={function() { setHover(false); }} onClick={onClick}
-          style={{
-            display: "grid", gridTemplateColumns: "60px 1fr 1fr 120px 60px",
-            gap: 24, padding: "22px 0", cursor: "pointer",
-            borderTop: "1px solid var(--line)",
-            alignItems: "center", position: "relative"
-          }}>
-          <div style={{ fontFamily: "var(--sans)", fontSize: 12, letterSpacing: "0.01em", color: "var(--fg-dim)", fontWeight: 400 }}>{project.id}</div>
-          <div style={{
-            fontFamily: "var(--sans)", fontSize: 32, letterSpacing: "-0.02em", fontWeight: 400,
-            color: hover ? "var(--fg)" : "var(--fg-mid)",
-            transform: hover ? "translateX(20px)" : "translateX(0)",
-            transition: "all 0.35s cubic-bezier(.2,.7,.2,1)"
-          }}>{project.title}</div>
-          <div style={{ fontFamily: "var(--sans)", fontSize: 13, letterSpacing: "0.01em", color: "var(--fg-dim)", fontWeight: 400 }}>{project.subtitle || project.client}</div>
-          <div style={{ fontFamily: "var(--sans)", fontSize: 13, letterSpacing: "0.01em", color: "var(--fg-dim)", fontWeight: 400 }}>{project.discipline}</div>
-          <div style={{ fontFamily: "var(--sans)", fontSize: 13, letterSpacing: "0.01em", color: "var(--fg-dim)", textAlign: "right", fontWeight: 400 }}>{project.year}</div>
-          <div style={{
-            position: "absolute", right: 120, top: "50%",
-            width: 200, height: 130,
-            background: coverBg(project),
-            transform: "translateY(-50%) translateX(" + (hover ? 0 : 30) + "px) scale(" + (hover ? 1 : 0.9) + ")",
-            opacity: hover ? 1 : 0, transition: "all 0.35s cubic-bezier(.2,.7,.2,1)",
-            pointerEvents: "none", outline: "1px solid var(--line)"
-          }}/>
         </div>
       );
     }
@@ -929,20 +861,18 @@
     /* ===================== APP ===================== */
     function App() {
       const [active, setActive] = useState(null);
-      const [indexOpen, setIndexOpen] = useState(false);
       const [introDone, setIntroDone] = useState(false);
       const [page, setPage] = useState("projects");
 
-      const handleEnter = function(project) { setPage("projects"); setActive(project); };
-      const handleBack = function() { setActive(null); };
-      const handleNext = function(next) { setActive(null); setTimeout(function() { setActive(next); }, 300); };
-      const handlePickFromIndex = function(i) { setIndexOpen(false); setTimeout(function() { setActive(window.PROJECTS[i]); }, 250); };
-      const handleNav = function(p) { setActive(null); setPage(p); setIndexOpen(false); };
+      var handleEnter = function(project) { setPage("projects"); setActive(project); };
+      var handleBack = function() { setActive(null); };
+      var handleNext = function(next) { setActive(null); setTimeout(function() { setActive(next); }, 300); };
+      var handleNav = function(p) { setActive(null); setPage(p); };
 
       return (
         <>
           {!introDone && <IntroOverlay onDone={function() { setIntroDone(true); }} />}
-          {!active && <Nav onOpenIndex={function() { setIndexOpen(true); }} onNav={handleNav} page={page} />}
+          {!active && <Nav onNav={handleNav} page={page} />}
           {page === "projects" && !active && <Gallery projects={window.PROJECTS} onEnter={handleEnter} />}
           {page === "studio" && !active && <StudioPage />}
           {page === "contact" && !active && <ContactPage />}
@@ -953,14 +883,6 @@
               allProjects={window.PROJECTS}
               onBack={handleBack}
               onNext={handleNext}
-            />
-          )}
-          {indexOpen && (
-            <IndexOverlay
-              projects={window.PROJECTS}
-              onClose={function() { setIndexOpen(false); }}
-              onPick={handlePickFromIndex}
-              onNav={handleNav}
             />
           )}
         </>

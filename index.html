@@ -4,9 +4,9 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>Vector Studio</title>
-<meta name="description" content="Vector Studio — An identity-led creative studio. CGI, brand identity, web, product design, art direction." />
+<meta name="description" content="Vector Studio - An artist-led studio working in subtraction. Identity, film, and platforms for category-defining companies." />
 <meta property="og:title" content="Vector Studio" />
-<meta property="og:description" content="An identity-led creative studio. CGI, brand identity, web, product design, art direction." />
+<meta property="og:description" content="An artist-led studio working in subtraction. Identity, film, and platforms for category-defining companies." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://14rd.com" />
 <meta name="theme-color" content="#ffffff" />
@@ -35,18 +35,15 @@
   }
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-  #detail-scroll::-webkit-scrollbar { width: 0; }
-  #detail-scroll { scrollbar-width: none; }
+  .smooth-scroll::-webkit-scrollbar { width: 0; }
+  .smooth-scroll { scrollbar-width: none; }
 
   button:focus-visible, a:focus-visible { outline: 1px solid #000; outline-offset: 2px; }
 
-  /* GPU-composited card layer */
   .gallery-card {
     will-change: transform, opacity;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    -webkit-transform-style: flat;
-    transform-style: flat;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -66,22 +63,34 @@
 
   <script>
   var PROJECTS = [
-    { id: "01", title: "AI Systems",            subtitle: "Manchester Airport Hotels - The future of hospitality, on film.",   client: "MA Hotels",             year: "2025", role: "Creative Direction, Design, CGI", discipline: "CGI",      cover: "assets/covers/MAHOTELS.png",            blurb: "A cinematic film on how AI and robotics could shape luxury hospitality. The idea is subtractive: the most advanced service is the one the guest never sees. Autonomous systems disappear into the experience and leave only ease." },
-    { id: "02", title: "Demone Della Velocità", subtitle: "Dainese - A narrative in material, light, and form.", client: "Dainese",               year: "2025", role: "Creative Direction, CGI",          discipline: "CGI",      cover: "assets/covers/DAINESE.png",             blurb: "A film built from three elements and nothing else: material, light, and form. We stripped the brand back to the engineering and let the object carry it. Directed, animated, and visualised with precision, it expresses Dainese without a word of copy." },
-    { id: "03", title: "LK001",                 subtitle: "Loho Kur - A collection reduced to a code.",                    client: "Loho Kur",              year: "2026", role: "Creative Direction, CGI",          discipline: "CGI",      cover: "assets/covers/LK001.png",               blurb: "We launched a new collection and direction through cinematic animation built around a single device, a collection code system. One idea, carried across the work, ordering the line down to its essentials." },
-    { id: "04", title: "Erosion",               subtitle: "James Jefferys x Zellerfeld - Footwear shaped by removal.", client: "Zellerfeld",            year: "2025", role: "Creative Direction, Design, CGI", discipline: "CGI",      cover: "assets/covers/EROSION.png",             blurb: "A sculptural shoe made by subtraction. The form follows geological erosion, where material is taken away until only the load-bearing structure remains. Designed, animated, and produced as a single digital-to-physical object." },
-    { id: "05", title: "Akan Chief Glasses",    subtitle: "Vic Mensa - Heritage in a single object.",                   client: "Vic Mensa",             year: "2025", role: "Creative Direction, Design, CGI", discipline: "Design",   cover: "assets/covers/VICMENSA.png",            blurb: "A one-of-one pair of gold Akan Chief glasses, modelled precisely to Vic Mensa's head. We distilled Akan heritage into a single sculptural form. A whole lineage, carried in one object made for one person." },
-    { id: "06", title: "Diamond Grill Auction", subtitle: "Sotheby's x Ian Delucca - An object sold before it existed.",     client: "Sotheby's",             year: "2024", role: "CGI",                              discipline: "CGI",      cover: "assets/covers/SOTHEBYS.png",            blurb: "We visualised a bespoke diamond grill before it was made, compressing the piece into a precise digital asset accurate enough to be valued and sold. The object existed as information first. That alone anchored a sale estimated at 3 to 5 million dollars." },
-    { id: "07", title: "Piza",                  subtitle: "Stephanie Piza - A brand reduced to its structure.",              client: "Piza",                  year: "2025", role: "Creative Direction, Brand Identity", discipline: "Identity", cover: "assets/covers/PIZA.png",                blurb: "A full brand identity built as one structure: strategy, typography, and visual system holding to a single idea. Nothing decorative survives. It reads as clarity and command from launch." },
-    { id: "08", title: "14 Red Door",           subtitle: "14 Red Door - An identity built in negative space.",                 client: "14 Red Door",           year: "2025", role: "Creative Direction, Brand Identity", discipline: "Identity", cover: "assets/covers/14REDDOOR.png",           blurb: "The complete identity, from name to type, drawn from a half-remembered childhood home. It centres on one image, a door between the known and the unknown. The brand works in negative space, on the idea that what matters most sits just out of view." },
-    { id: "09", title: "Setting Sun",           subtitle: "Hikari no Yami - One system, carried across a campaign.",              client: "Hikari no Yami",        year: "2025", role: "Creative Direction",               discipline: "Direction",cover: "assets/covers/SETTINGSUN.png",          blurb: "We directed Chapter 8 through a single refined identity system. One set of rules, applied without deviation, holding continuity across the campaign and sharpening the brand against everything around it." },
-    { id: "10", title: "Studio James Jefferys", subtitle: "James Jefferys - Subtraction as interface.",              client: "Studio James Jefferys", year: "2026", role: "Creative Direction, Web Design",   discipline: "Web",      cover: "assets/covers/STUDIOJAMESJEFFERYS.png", blurb: "A single-surface website built as one digital skin. The premise: the most intuitive interface is the human body, so interaction is reduced to its essential elements and nothing more. The method is subtraction, used for clarity and control." }
+    { id: "01", slug: "ai-systems",             title: "AI Systems",            subtitle: "Manchester Airport Hotels - The future of hospitality, on film.",   client: "MA Hotels",             year: "2025", role: "Creative Direction, Design, CGI", discipline: "CGI",      cover: "assets/covers/MAHOTELS.png",            blurb: "A cinematic film on how AI and robotics could shape luxury hospitality. The idea is subtractive: the most advanced service is the one the guest never sees. Autonomous systems disappear into the experience and leave only ease." },
+    { id: "02", slug: "demone-della-velocita",  title: "Demone Della Velocità", subtitle: "Dainese - A narrative in material, light, and form.", client: "Dainese",               year: "2025", role: "Creative Direction, CGI",          discipline: "CGI",      cover: "assets/covers/DAINESE.png",             blurb: "A film built from three elements and nothing else: material, light, and form. We stripped the brand back to the engineering and let the object carry it. Directed, animated, and visualised with precision, it expresses Dainese without a word of copy." },
+    { id: "03", slug: "lk001",                  title: "LK001",                 subtitle: "Loho Kur - A collection reduced to a code.",                    client: "Loho Kur",              year: "2026", role: "Creative Direction, CGI",          discipline: "CGI",      cover: "assets/covers/LK001.png",               blurb: "We launched a new collection and direction through cinematic animation built around a single device, a collection code system. One idea, carried across the work, ordering the line down to its essentials." },
+    { id: "04", slug: "erosion",                title: "Erosion",               subtitle: "James Jefferys x Zellerfeld - Footwear shaped by removal.", client: "Zellerfeld",            year: "2025", role: "Creative Direction, Design, CGI", discipline: "CGI",      cover: "assets/covers/EROSION.png",             blurb: "A sculptural shoe made by subtraction. The form follows geological erosion, where material is taken away until only the load-bearing structure remains. Designed, animated, and produced as a single digital-to-physical object." },
+    { id: "05", slug: "akan-chief-glasses",     title: "Akan Chief Glasses",    subtitle: "Vic Mensa - Heritage in a single object.",                   client: "Vic Mensa",             year: "2025", role: "Creative Direction, Design, CGI", discipline: "Design",   cover: "assets/covers/VICMENSA.png",            blurb: "A one-of-one pair of gold Akan Chief glasses, modelled precisely to Vic Mensa's head. We distilled Akan heritage into a single sculptural form. A whole lineage, carried in one object made for one person." },
+    { id: "06", slug: "diamond-grill-auction",  title: "Diamond Grill Auction", subtitle: "Sotheby's x Ian Delucca - An object sold before it existed.",     client: "Sotheby's",             year: "2024", role: "CGI",                              discipline: "CGI",      cover: "assets/covers/SOTHEBYS.png",            blurb: "We visualised a bespoke diamond grill before it was made, compressing the piece into a precise digital asset accurate enough to be valued and sold. The object existed as information first. That alone anchored a sale estimated at 3 to 5 million dollars." },
+    { id: "07", slug: "piza",                   title: "Piza",                  subtitle: "Stephanie Piza - A brand reduced to its structure.",              client: "Piza",                  year: "2025", role: "Creative Direction, Brand Identity", discipline: "Identity", cover: "assets/covers/PIZA.png",                blurb: "A full brand identity built as one structure: strategy, typography, and visual system holding to a single idea. Nothing decorative survives. It reads as clarity and command from launch." },
+    { id: "08", slug: "14-red-door",            title: "14 Red Door",           subtitle: "14 Red Door - An identity built in negative space.",                 client: "14 Red Door",           year: "2025", role: "Creative Direction, Brand Identity", discipline: "Identity", cover: "assets/covers/14REDDOOR.png",           blurb: "The complete identity, from name to type, drawn from a half-remembered childhood home. It centres on one image, a door between the known and the unknown. The brand works in negative space, on the idea that what matters most sits just out of view." },
+    { id: "09", slug: "setting-sun",            title: "Setting Sun",           subtitle: "Hikari no Yami - One system, carried across a campaign.",              client: "Hikari no Yami",        year: "2025", role: "Creative Direction",               discipline: "Direction",cover: "assets/covers/SETTINGSUN.png",          blurb: "We directed Chapter 8 through a single refined identity system. One set of rules, applied without deviation, holding continuity across the campaign and sharpening the brand against everything around it." },
+    { id: "10", slug: "studio-james-jefferys",  title: "Studio James Jefferys", subtitle: "James Jefferys - Subtraction as interface.",              client: "Studio James Jefferys", year: "2026", role: "Creative Direction, Web Design",   discipline: "Web",      cover: "assets/covers/STUDIOJAMESJEFFERYS.png", blurb: "A single-surface website built as one digital skin. The premise: the most intuitive interface is the human body, so interaction is reduced to its essential elements and nothing more. The method is subtraction, used for clarity and control." }
   ];
   function coverBg(project) {
     return "#f2efe9 url(\"" + project.cover + "\") center/cover no-repeat";
   }
   window.PROJECTS = PROJECTS;
   window.coverBg = coverBg;
+
+  // Resolve route from 404 redirect or current path
+  function getInitialRoute() {
+    var params = new URLSearchParams(window.location.search);
+    var redirected = params.get("route");
+    if (redirected) {
+      history.replaceState(null, "", redirected);
+      return redirected;
+    }
+    return window.location.pathname;
+  }
+  window._initialRoute = getInitialRoute();
   </script>
 
   <script type="text/babel">
@@ -89,41 +98,171 @@
 
     function isMobile() { return window.innerWidth <= 768; }
 
+    /* ===================== SMOOTH SCROLL WRAPPER ===================== */
+    /* Locomotive-style lerp scroll: native scroll drives the target,
+       RAF lerps the visual position for a silky ease-out feel. */
+    function SmoothScroll({ children }) {
+      var containerRef = useRef(null);
+      var contentRef = useRef(null);
+      var scrollTarget = useRef(0);
+      var scrollCurrent = useRef(0);
+      var rafId = useRef(null);
+      var mobile = isMobile();
+
+      useEffect(function() {
+        var container = containerRef.current;
+        var content = contentRef.current;
+        if (!container || !content) return;
+
+        // Set container to fixed viewport, content will be translated
+        scrollTarget.current = 0;
+        scrollCurrent.current = 0;
+
+        var maxScroll = function() {
+          return Math.max(0, content.scrollHeight - container.clientHeight);
+        };
+
+        var onWheel = function(e) {
+          e.preventDefault();
+          scrollTarget.current = Math.max(0, Math.min(maxScroll(), scrollTarget.current + e.deltaY));
+        };
+
+        // Touch handling
+        var touchStartY = 0;
+        var touchLastY = 0;
+        var velocity = 0;
+        var onTouchStart = function(e) {
+          touchStartY = e.touches[0].clientY;
+          touchLastY = touchStartY;
+          velocity = 0;
+        };
+        var onTouchMove = function(e) {
+          e.preventDefault();
+          var y = e.touches[0].clientY;
+          var dy = touchLastY - y;
+          velocity = dy;
+          touchLastY = y;
+          scrollTarget.current = Math.max(0, Math.min(maxScroll(), scrollTarget.current + dy));
+        };
+        var onTouchEnd = function() {
+          // Momentum
+          scrollTarget.current = Math.max(0, Math.min(maxScroll(), scrollTarget.current + velocity * 8));
+        };
+
+        container.addEventListener("wheel", onWheel, { passive: false });
+        container.addEventListener("touchstart", onTouchStart, { passive: true });
+        container.addEventListener("touchmove", onTouchMove, { passive: false });
+        container.addEventListener("touchend", onTouchEnd, { passive: true });
+
+        var tick = function() {
+          var delta = scrollTarget.current - scrollCurrent.current;
+          // Lerp factor: 0.08 for that locomotive-style long ease-out
+          scrollCurrent.current += delta * 0.08;
+          if (Math.abs(delta) < 0.5) scrollCurrent.current = scrollTarget.current;
+          content.style.transform = "translate3d(0, " + (-scrollCurrent.current) + "px, 0)";
+          rafId.current = requestAnimationFrame(tick);
+        };
+        rafId.current = requestAnimationFrame(tick);
+
+        return function() {
+          cancelAnimationFrame(rafId.current);
+          container.removeEventListener("wheel", onWheel);
+          container.removeEventListener("touchstart", onTouchStart);
+          container.removeEventListener("touchmove", onTouchMove);
+          container.removeEventListener("touchend", onTouchEnd);
+        };
+      }, []);
+
+      // Reset scroll position when children change
+      useEffect(function() {
+        scrollTarget.current = 0;
+        scrollCurrent.current = 0;
+        if (contentRef.current) contentRef.current.style.transform = "translate3d(0, 0, 0)";
+      }, [children]);
+
+      return (
+        <div ref={containerRef} style={{
+          position: "fixed", inset: 0, overflow: "hidden",
+          background: "var(--bg)", zIndex: 5
+        }}>
+          <div ref={contentRef} style={{
+            willChange: "transform",
+            WebkitBackfaceVisibility: "hidden"
+          }}>
+            {children}
+          </div>
+        </div>
+      );
+    }
+
+    /* ===================== ROUTING ===================== */
+    function navigate(path) {
+      history.pushState(null, "", path);
+      window.dispatchEvent(new Event("popstate"));
+    }
+
+    function useRoute() {
+      var initial = window._initialRoute || "/";
+      var parsed = parseRoute(initial);
+      var st = useState(parsed);
+      var route = st[0], setRoute = st[1];
+
+      useEffect(function() {
+        var onPop = function() {
+          setRoute(parseRoute(window.location.pathname));
+        };
+        window.addEventListener("popstate", onPop);
+        return function() { window.removeEventListener("popstate", onPop); };
+      }, []);
+
+      return route;
+    }
+
+    function parseRoute(path) {
+      var p = path.replace(/\/+$/, "") || "/";
+      if (p === "/" || p === "/projects") return { page: "projects", slug: null };
+      if (p === "/studio") return { page: "studio", slug: null };
+      if (p === "/contact") return { page: "contact", slug: null };
+      // Check if it's a project slug
+      var slug = p.replace(/^\//, "");
+      var proj = window.PROJECTS.find(function(pr) { return pr.slug === slug; });
+      if (proj) return { page: "project", slug: slug };
+      return { page: "projects", slug: null };
+    }
+
     /* ===================== GALLERY ===================== */
-    /* Performance-critical: uses refs + direct DOM updates instead of
-       React state for the animation loop. This avoids re-rendering
-       10 cards × 60fps = 600 React diffs/second which kills Safari. */
     function Gallery({ projects, onEnter }) {
-      const n = projects.length;
-      const [hoverIdx, setHoverIdx] = useState(null);
-      const [entering, setEntering] = useState(null);
+      var n = projects.length;
+      var stHover = useState(null);
+      var hoverIdx = stHover[0], setHoverIdx = stHover[1];
+      var stEntering = useState(null);
+      var entering = stEntering[0], setEntering = stEntering[1];
 
-      const progressRef = useRef(0);
-      const targetRef = useRef(0);
-      const mouseRef = useRef({ x: 0.5, y: 0.5 });
-      const hoverRef = useRef(null);
-      const rafRef = useRef(null);
-      const stageRef = useRef(null);
-      const wrapperRef = useRef(null);
-      const cardRefs = useRef([]);
-      const bannerRef = useRef(null);
-      const bannerTitleRef = useRef(null);
-      const bannerSubRef = useRef(null);
-      const lastBannerIdx = useRef(-1);
+      var progressRef = useRef(0);
+      var targetRef = useRef(0);
+      var velocityRef = useRef(0);
+      var mouseRef = useRef({ x: 0.5, y: 0.5 });
+      var hoverRef = useRef(null);
+      var rafRef = useRef(null);
+      var stageRef = useRef(null);
+      var wrapperRef = useRef(null);
+      var cardRefs = useRef([]);
+      var bannerTitleRef = useRef(null);
+      var bannerSubRef = useRef(null);
+      var lastBannerIdx = useRef(-1);
 
-      const mobile = isMobile();
-      const cardW = mobile ? 280 : 520;
-      const cardH = mobile ? 183 : 340;
-      const spreadX = mobile ? 200 : 360;
+      var mobile = isMobile();
+      var cardW = mobile ? 280 : 520;
+      var cardH = mobile ? 183 : 340;
+      var spreadX = mobile ? 200 : 360;
 
-      // Keep hoverRef in sync
-      useEffect(() => { hoverRef.current = hoverIdx; }, [hoverIdx]);
+      useEffect(function() { hoverRef.current = hoverIdx; }, [hoverIdx]);
 
-      // Main animation loop — direct DOM updates, no React state
-      useEffect(() => {
+      // Main animation loop
+      useEffect(function() {
         if (entering) return;
         var last = performance.now();
-        const tick = (t) => {
+        var tick = function(t) {
           var dt = Math.min(64, t - last); last = t;
 
           // Mouse-driven auto-scroll (desktop only)
@@ -132,16 +271,22 @@
             var dx = mx - 0.5;
             var sign = dx > 0 ? 1 : (dx < 0 ? -1 : 0);
             var mag = Math.max(0, Math.abs(dx) - 0.28);
-            var velocity = sign * mag * mag * 3.0;
+            var vel = sign * mag * mag * 3.0;
             if (mag > 0) {
-              targetRef.current = Math.max(0, Math.min(n - 1, targetRef.current + velocity * (dt / 1000)));
+              targetRef.current = Math.max(0, Math.min(n - 1, targetRef.current + vel * (dt / 1000)));
             }
           }
 
-          // Smooth progress lerp
+          // Apply momentum velocity then decay it
+          if (Math.abs(velocityRef.current) > 0.0001) {
+            targetRef.current = Math.max(0, Math.min(n - 1, targetRef.current + velocityRef.current));
+            velocityRef.current *= 0.94; // long ease-out decay
+          }
+
+          // Smooth progress lerp - slightly looser for smoother feel
           var delta = targetRef.current - progressRef.current;
           if (Math.abs(delta) > 0.0005) {
-            progressRef.current += delta * 0.11;
+            progressRef.current += delta * 0.09;
           } else {
             progressRef.current = targetRef.current;
           }
@@ -155,7 +300,7 @@
               "translate3d(" + ((mx2 - 0.5) * 28) + "px, " + ((my2 - 0.5) * 18) + "px, 0) rotateX(" + (-(my2 - 0.5) * 8) + "deg) rotateY(" + ((mx2 - 0.5) * 12) + "deg)";
           }
 
-          // Update each card transform directly
+          // Update each card
           var activeIdx = hoverRef.current != null ? hoverRef.current : Math.max(0, Math.min(n - 1, Math.round(progress)));
           for (var i = 0; i < n; i++) {
             var el = cardRefs.current[i];
@@ -167,7 +312,6 @@
             var rot = Math.sin(i * 1.3) * 3.2;
             var opacity = Math.abs(o) > 5 ? 0 : 1;
             var baseZ = 1000 - Math.abs(Math.round(o * 10));
-
             var cardCenterX = 0.5 + (i - progress) * 0.18;
             var distToMouse = Math.abs(cardCenterX - mouseRef.current.x);
             var proximityZ = Math.round(500 - distToMouse * 1000);
@@ -177,7 +321,7 @@
             el.style.zIndex = (hoverRef.current === i ? 3000 : proximityZ + baseZ);
           }
 
-          // Update banner text (only when active project changes)
+          // Banner text
           if (activeIdx !== lastBannerIdx.current) {
             lastBannerIdx.current = activeIdx;
             var proj = projects[activeIdx];
@@ -185,7 +329,7 @@
             if (bannerTitleRef.current) {
               bannerTitleRef.current.textContent = proj.title;
               bannerTitleRef.current.style.animation = "none";
-              bannerTitleRef.current.offsetHeight; // force reflow
+              bannerTitleRef.current.offsetHeight;
               bannerTitleRef.current.style.animation = "rise 0.55s cubic-bezier(.2,.7,.2,1)";
             }
           }
@@ -193,11 +337,11 @@
           rafRef.current = requestAnimationFrame(tick);
         };
         rafRef.current = requestAnimationFrame(tick);
-        return () => cancelAnimationFrame(rafRef.current);
+        return function() { cancelAnimationFrame(rafRef.current); };
       }, [entering, n, mobile, spreadX, projects]);
 
       // Wheel
-      useEffect(() => {
+      useEffect(function() {
         if (entering) return;
         var el = stageRef.current; if (!el) return;
         var onWheel = function(e) {
@@ -205,11 +349,11 @@
           targetRef.current = Math.max(0, Math.min(n - 1, targetRef.current + (e.deltaY + e.deltaX) * 0.0025));
         };
         el.addEventListener("wheel", onWheel, { passive: false });
-        return () => el.removeEventListener("wheel", onWheel);
+        return function() { el.removeEventListener("wheel", onWheel); };
       }, [entering, n]);
 
       // Keyboard
-      useEffect(() => {
+      useEffect(function() {
         if (entering) return;
         var onKey = function(e) {
           if (e.key === "ArrowRight" || e.key === "ArrowDown") targetRef.current = Math.min(n - 1, Math.round(targetRef.current) + 1);
@@ -217,33 +361,49 @@
           else if (e.key === "Enter") onEnter(projects[Math.max(0, Math.min(n - 1, Math.round(progressRef.current)))]);
         };
         window.addEventListener("keydown", onKey);
-        return () => window.removeEventListener("keydown", onKey);
+        return function() { window.removeEventListener("keydown", onKey); };
       }, [entering, onEnter, projects, n]);
 
-      // Drag / touch
-      useEffect(() => {
+      // Drag / touch with momentum
+      useEffect(function() {
         if (entering) return;
         var el = stageRef.current; if (!el) return;
-        var startX = 0, startProg = 0, dragging = false;
+        var startX = 0, startProg = 0, dragging = false, lastX = 0, lastT = 0;
         var onDown = function(e) {
           dragging = true;
-          startX = e.clientX != null ? e.clientX : (e.touches && e.touches[0] ? e.touches[0].clientX : 0);
+          velocityRef.current = 0;
+          var cx = e.clientX != null ? e.clientX : (e.touches && e.touches[0] ? e.touches[0].clientX : 0);
+          startX = cx; lastX = cx; lastT = performance.now();
           startProg = targetRef.current;
         };
         var onMove = function(e) {
           if (!dragging) return;
-          var x = e.clientX != null ? e.clientX : (e.touches && e.touches[0] ? e.touches[0].clientX : 0);
-          var dx = startX - x;
-          targetRef.current = Math.max(0, Math.min(n - 1, startProg + dx * 0.006));
+          var cx = e.clientX != null ? e.clientX : (e.touches && e.touches[0] ? e.touches[0].clientX : 0);
+          var now = performance.now();
+          var dx = startX - cx;
+          // Higher multiplier = more responsive swipe
+          targetRef.current = Math.max(0, Math.min(n - 1, startProg + dx * 0.012));
+          lastX = cx; lastT = now;
         };
-        var onUp = function() { dragging = false; };
+        var onUp = function(e) {
+          if (!dragging) return;
+          dragging = false;
+          // Calculate release velocity for momentum
+          var cx = e.clientX != null ? e.clientX : (e.changedTouches && e.changedTouches[0] ? e.changedTouches[0].clientX : lastX);
+          var now = performance.now();
+          var dt = now - lastT;
+          if (dt > 0 && dt < 100) {
+            var pixelVel = (lastX - cx) / dt; // px/ms
+            velocityRef.current = pixelVel * 0.3; // convert to progress units
+          }
+        };
         el.addEventListener("mousedown", onDown);
         window.addEventListener("mousemove", onMove);
         window.addEventListener("mouseup", onUp);
         el.addEventListener("touchstart", onDown, { passive: true });
         window.addEventListener("touchmove", onMove, { passive: true });
-        window.addEventListener("touchend", onUp);
-        return () => {
+        window.addEventListener("touchend", onUp, { passive: true });
+        return function() {
           el.removeEventListener("mousedown", onDown);
           window.removeEventListener("mousemove", onMove);
           window.removeEventListener("mouseup", onUp);
@@ -253,15 +413,15 @@
         };
       }, [entering, n]);
 
-      // Mouse position (ref only, no state)
-      useEffect(() => {
+      // Mouse position
+      useEffect(function() {
         var el = stageRef.current; if (!el) return;
         var onMove = function(e) {
           var r = el.getBoundingClientRect();
           mouseRef.current = { x: (e.clientX - r.left) / r.width, y: (e.clientY - r.top) / r.height };
         };
         el.addEventListener("mousemove", onMove);
-        return () => el.removeEventListener("mousemove", onMove);
+        return function() { el.removeEventListener("mousemove", onMove); };
       }, []);
 
       var handleEnter = function(project) {
@@ -291,15 +451,11 @@
           }}>
             {projects.map(function(p, i) {
               var isEntering = entering && entering.id === p.id;
-
               var enterStyle = isEntering ? {
                 transform: "translate3d(-50%, -50%, 500px) scale(2)",
                 opacity: 0,
                 transition: "transform 0.9s cubic-bezier(.6,.02,.2,1), opacity 0.9s"
-              } : entering ? {
-                opacity: 0,
-                transition: "opacity 0.35s"
-              } : {};
+              } : entering ? { opacity: 0, transition: "opacity 0.35s" } : {};
 
               return (
                 <div
@@ -312,8 +468,7 @@
                   style={{
                     position: "absolute", left: "50%", top: "50%",
                     width: cardW, height: cardH,
-                    pointerEvents: "auto",
-                    cursor: "pointer",
+                    pointerEvents: "auto", cursor: "pointer",
                     zIndex: isEntering ? 9999 : 1000,
                     ...enterStyle
                   }}
@@ -323,48 +478,24 @@
                     transform: hoverIdx === i ? "scale(1.02)" : "scale(1)",
                     transition: "transform 0.4s"
                   }}>
-                    {/* Tinted shadow — desktop only, reduced blur for Safari */}
-                    {!mobile && <img
-                      src={p.cover}
-                      alt=""
-                      aria-hidden="true"
-                      draggable="false"
-                      style={{
-                        position: "absolute", inset: 0,
-                        width: "100%", height: "100%",
-                        objectFit: "contain",
-                        filter: "blur(20px) saturate(1.1) brightness(0.92)",
-                        opacity: (hoverIdx === i || (!entering && i === Math.max(0, Math.min(n - 1, Math.round(progressRef.current))))) ? 0.5 : 0.28,
-                        transform: "translateY(28px) scale(0.96) translateZ(0)",
-                        pointerEvents: "none",
-                        WebkitBackfaceVisibility: "hidden"
-                      }}
-                    />}
-                    <img
-                      src={p.cover}
-                      alt={p.title}
-                      draggable="false"
-                      style={{
-                        position: "absolute", inset: 0,
-                        width: "100%", height: "100%",
-                        objectFit: "contain",
-                        transform: "translateZ(0)",
-                        userSelect: "none",
-                        WebkitUserDrag: "none",
-                        WebkitBackfaceVisibility: "hidden"
-                      }}
-                    />
+                    <img src={p.cover} alt={p.title} draggable="false" style={{
+                      position: "absolute", inset: 0,
+                      width: "100%", height: "100%",
+                      objectFit: "contain",
+                      transform: "translateZ(0)",
+                      userSelect: "none", WebkitUserDrag: "none",
+                      WebkitBackfaceVisibility: "hidden"
+                    }} />
                   </div>
                 </div>
               );
             })}
           </div>
 
-          {/* Active project title — top/bottom center */}
-          <div ref={bannerRef} style={{
+          {/* Banner */}
+          <div style={{
             position: "absolute", left: "50%",
-            top: mobile ? "auto" : 96,
-            bottom: mobile ? 48 : "auto",
+            top: mobile ? "auto" : 96, bottom: mobile ? 48 : "auto",
             transform: "translateX(-50%)",
             textAlign: "center", opacity: entering ? 0 : 1, transition: "opacity 0.4s",
             pointerEvents: "none", maxWidth: "90vw", width: "100%",
@@ -373,18 +504,13 @@
             <div ref={bannerSubRef} style={{
               fontFamily: "var(--sans)", fontSize: mobile ? 11 : 12, letterSpacing: "0.02em",
               color: "var(--fg-dim)", marginBottom: mobile ? 10 : 14, fontWeight: 400
-            }}>
-              {projects[0].subtitle}
-            </div>
+            }}>{projects[0].subtitle}</div>
             <h1 ref={bannerTitleRef} style={{
               fontFamily: "var(--sans)", fontWeight: 400,
               fontSize: mobile ? "clamp(28px, 8vw, 44px)" : "clamp(44px, 6vw, 88px)",
               lineHeight: 0.95, letterSpacing: "-0.03em", margin: 0,
-              color: "var(--fg)",
-              animation: "rise 0.55s cubic-bezier(.2,.7,.2,1)"
-            }}>
-              {projects[0].title}
-            </h1>
+              color: "var(--fg)", animation: "rise 0.55s cubic-bezier(.2,.7,.2,1)"
+            }}>{projects[0].title}</h1>
           </div>
         </div>
       );
@@ -392,181 +518,115 @@
 
     /* ===================== PROJECT DETAIL ===================== */
     function ProjectDetail({ project, allProjects, onBack, onNext }) {
-      const [mounted, setMounted] = useState(false);
-      const mobile = isMobile();
-      useEffect(() => {
+      var stMounted = useState(false);
+      var mounted = stMounted[0], setMounted = stMounted[1];
+      var mobile = isMobile();
+      useEffect(function() {
         var t = setTimeout(function() { setMounted(true); }, 30);
-        return () => clearTimeout(t);
+        return function() { clearTimeout(t); };
       }, []);
-      useEffect(() => {
-        var el = document.getElementById("detail-scroll");
-        if (el) el.scrollTop = 0;
-      }, [project.id]);
 
       var nextIdx = (allProjects.findIndex(function(p) { return p.id === project.id; }) + 1) % allProjects.length;
       var next = allProjects[nextIdx];
 
       return (
-        <div id="detail-scroll" style={{
-          position: "fixed", inset: 0, background: "var(--bg)",
-          overflow: "auto", zIndex: 10,
-          opacity: mounted ? 1 : 0, transition: "opacity 0.5s",
-          WebkitOverflowScrolling: "touch"
-        }}>
-          {/* Hero */}
-          <section style={{ position: "relative", height: mobile ? "70vh" : "100vh", width: "100%", overflow: "hidden" }}>
-            <img
-              src={project.cover}
-              alt={project.title}
-              style={{
-                position: "absolute", inset: 0,
-                width: "100%", height: "100%",
-                objectFit: "contain",
-                background: "#f2efe9",
+        <SmoothScroll key={project.id}>
+          <div style={{ opacity: mounted ? 1 : 0, transition: "opacity 0.5s" }}>
+            {/* Hero */}
+            <section style={{ position: "relative", height: mobile ? "70vh" : "100vh", width: "100%", overflow: "hidden" }}>
+              <img src={project.cover} alt={project.title} style={{
+                position: "absolute", inset: 0, width: "100%", height: "100%",
+                objectFit: "contain", background: "#f2efe9",
                 transform: mounted ? "scale(1) translateZ(0)" : "scale(1.15) translateZ(0)",
                 transition: "transform 1.6s cubic-bezier(.2,.7,.2,1)",
                 WebkitBackfaceVisibility: "hidden"
-              }}
-            />
-            <div style={{
-              position: "absolute", inset: 0,
-              background: "linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 70%, rgba(255,255,255,0.35) 100%)"
-            }}/>
-            <div style={{
-              position: "absolute", left: mobile ? 20 : 32, bottom: mobile ? 32 : 56, right: mobile ? 20 : 32,
-              display: "flex", alignItems: mobile ? "flex-start" : "flex-end",
-              justifyContent: "space-between",
-              gap: mobile ? 24 : 48,
-              flexDirection: mobile ? "column" : "row"
-            }}>
-              <div>
-                <div style={{
-                  fontFamily: "var(--sans)", fontSize: mobile ? 11 : 13, letterSpacing: "0.02em",
-                  color: "rgba(255,255,255,0.78)", marginBottom: mobile ? 12 : 18, fontWeight: 400,
-                  textShadow: "0 1px 12px rgba(0,0,0,0.3)"
-                }}>
-                  {project.subtitle || project.client}
-                </div>
-                <h1 style={{
-                  fontFamily: "var(--sans)", fontWeight: 400,
-                  fontSize: mobile ? "clamp(32px, 10vw, 56px)" : "clamp(56px, 9vw, 140px)",
-                  lineHeight: 0.9, letterSpacing: "-0.035em", margin: 0,
-                  color: "#fff", maxWidth: "14ch",
-                  textShadow: "0 2px 40px rgba(0,0,0,0.25)"
-                }}>
-                  {project.title}
-                </h1>
-              </div>
-              {!mobile && (
-                <div style={{
-                  fontFamily: "var(--sans)", fontSize: 14, letterSpacing: "0.02em",
-                  color: "#fff", maxWidth: 280, textAlign: "right", lineHeight: 1.55,
-                  textShadow: "0 1px 12px rgba(0,0,0,0.3)"
-                }}>
-                  {project.blurb}
-                </div>
-              )}
-            </div>
-          </section>
-
-          {/* Essay */}
-          <section style={{
-            maxWidth: 1200, margin: "0 auto",
-            padding: mobile ? "80px 20px 60px" : "140px 32px 80px",
-            display: "grid",
-            gridTemplateColumns: mobile ? "1fr" : "1fr 2fr",
-            gap: mobile ? 48 : 80
-          }}>
-            <div style={mobile ? {} : { position: "sticky", top: 120, alignSelf: "start" }}>
-              <MetaRow label="Client" value={project.client} />
-              <MetaRow label="Year" value={project.year} />
-              <MetaRow label="Role" value={project.role} />
-              <MetaRow label="Discipline" value={project.discipline} />
-            </div>
-            <div>
-              <p style={{
-                fontFamily: "var(--sans)", fontWeight: 400,
-                fontSize: mobile ? "clamp(18px, 5vw, 22px)" : "clamp(22px, 2.2vw, 30px)",
-                lineHeight: 1.3, letterSpacing: "-0.015em",
-                color: "var(--fg)", margin: 0, textWrap: "pretty"
-              }}>
-                {project.blurb}
-              </p>
+              }} />
+              <div style={{ position: "absolute", inset: 0,
+                background: "linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 70%, rgba(255,255,255,0.35) 100%)" }}/>
               <div style={{
-                marginTop: mobile ? 36 : 56, fontFamily: "var(--sans)", fontSize: mobile ? 14 : 15, lineHeight: 1.7,
-                color: "var(--fg-mid)", maxWidth: "62ch", textWrap: "pretty"
+                position: "absolute", left: mobile ? 20 : 32, bottom: mobile ? 32 : 56, right: mobile ? 20 : 32,
+                display: "flex", alignItems: mobile ? "flex-start" : "flex-end",
+                justifyContent: "space-between", gap: mobile ? 24 : 48,
+                flexDirection: mobile ? "column" : "row"
               }}>
-                <p style={{ margin: 0 }}>
-                  The brief arrived as a sentence. We returned it as a system — a small set of rules that could be re-played across surfaces without losing the feeling that made {project.client} worth working with in the first place.
-                </p>
+                <div>
+                  <div style={{ fontFamily: "var(--sans)", fontSize: mobile ? 11 : 13, letterSpacing: "0.02em",
+                    color: "rgba(255,255,255,0.78)", marginBottom: mobile ? 12 : 18, fontWeight: 400,
+                    textShadow: "0 1px 12px rgba(0,0,0,0.3)" }}>{project.subtitle || project.client}</div>
+                  <h1 style={{ fontFamily: "var(--sans)", fontWeight: 400,
+                    fontSize: mobile ? "clamp(32px, 10vw, 56px)" : "clamp(56px, 9vw, 140px)",
+                    lineHeight: 0.9, letterSpacing: "-0.035em", margin: 0,
+                    color: "#fff", maxWidth: "14ch", textShadow: "0 2px 40px rgba(0,0,0,0.25)" }}>{project.title}</h1>
+                </div>
+                {!mobile && <div style={{ fontFamily: "var(--sans)", fontSize: 14, letterSpacing: "0.02em",
+                  color: "#fff", maxWidth: 280, textAlign: "right", lineHeight: 1.55,
+                  textShadow: "0 1px 12px rgba(0,0,0,0.3)" }}>{project.blurb}</div>}
               </div>
-            </div>
-          </section>
+            </section>
 
-          {/* Image grid */}
-          <section style={{ padding: mobile ? "20px 20px 80px" : "40px 32px 120px", maxWidth: 1600, margin: "0 auto" }}>
-            <div style={{
-              display: "grid",
-              gridTemplateColumns: mobile ? "1fr" : "repeat(6, 1fr)",
-              gap: mobile ? 12 : 16,
-              gridAutoRows: "minmax(180px, auto)"
-            }}>
-              <Shot project={project} style={mobile ? { aspectRatio: "16/10" } : { gridColumn: "1 / 5", gridRow: "span 2", aspectRatio: "16/10" }}/>
-              <Shot project={project} style={mobile ? { aspectRatio: "4/5" } : { gridColumn: "5 / 7", aspectRatio: "4/5" }}/>
-              <Shot project={project} style={mobile ? { aspectRatio: "4/5" } : { gridColumn: "5 / 7", aspectRatio: "4/5" }}/>
-              <Shot project={project} style={mobile ? { aspectRatio: "1/1" } : { gridColumn: "1 / 4", aspectRatio: "1/1" }}/>
-              <Shot project={project} style={mobile ? { aspectRatio: "16/9" } : { gridColumn: "4 / 7", aspectRatio: "16/9" }}/>
-            </div>
-          </section>
-
-          {/* Next project */}
-          <section onClick={function() { onNext(next); }} style={{
-            position: "relative", height: mobile ? "50vh" : "70vh", cursor: "pointer", overflow: "hidden",
-            borderTop: "1px solid var(--line)"
-          }}>
-            <div style={{ position: "absolute", inset: 0, background: coverBg(next), filter: "brightness(0.85)" }}/>
-            <div style={{ position: "absolute", inset: 0, display: "grid", placeItems: "center", textAlign: "center", color: "#fff" }}>
+            {/* Essay */}
+            <section style={{ maxWidth: 1200, margin: "0 auto", padding: mobile ? "80px 20px 60px" : "140px 32px 80px",
+              display: "grid", gridTemplateColumns: mobile ? "1fr" : "1fr 2fr", gap: mobile ? 48 : 80 }}>
+              <div style={mobile ? {} : { position: "sticky", top: 120, alignSelf: "start" }}>
+                <MetaRow label="Client" value={project.client} />
+                <MetaRow label="Year" value={project.year} />
+                <MetaRow label="Role" value={project.role} />
+                <MetaRow label="Discipline" value={project.discipline} />
+              </div>
               <div>
-                <div style={{
-                  fontFamily: "var(--sans)", fontSize: mobile ? 11 : 13, letterSpacing: "0.02em",
-                  opacity: 0.85, marginBottom: mobile ? 16 : 24,
-                  textShadow: "0 1px 12px rgba(0,0,0,0.3)"
-                }}>Next project</div>
-                <div style={{
-                  fontFamily: "var(--sans)", fontWeight: 400,
-                  fontSize: mobile ? "clamp(32px, 10vw, 56px)" : "clamp(56px, 8vw, 120px)",
-                  lineHeight: 0.9, letterSpacing: "-0.03em",
-                  textShadow: "0 2px 40px rgba(0,0,0,0.25)"
-                }}>{next.title}</div>
-                <div style={{
-                  marginTop: mobile ? 20 : 28, fontFamily: "var(--sans)", fontSize: 12, letterSpacing: "0.02em",
-                  opacity: 0.75
-                }}>Tap to continue →</div>
+                <p style={{ fontFamily: "var(--sans)", fontWeight: 400,
+                  fontSize: mobile ? "clamp(18px, 5vw, 22px)" : "clamp(22px, 2.2vw, 30px)",
+                  lineHeight: 1.3, letterSpacing: "-0.015em", color: "var(--fg)", margin: 0, textWrap: "pretty" }}>{project.blurb}</p>
               </div>
-            </div>
-          </section>
+            </section>
 
-          {/* Close */}
+            {/* Image grid */}
+            <section style={{ padding: mobile ? "20px 20px 80px" : "40px 32px 120px", maxWidth: 1600, margin: "0 auto" }}>
+              <div style={{ display: "grid", gridTemplateColumns: mobile ? "1fr" : "repeat(6, 1fr)",
+                gap: mobile ? 12 : 16, gridAutoRows: "minmax(180px, auto)" }}>
+                <Shot project={project} style={mobile ? { aspectRatio: "16/10" } : { gridColumn: "1 / 5", gridRow: "span 2", aspectRatio: "16/10" }}/>
+                <Shot project={project} style={mobile ? { aspectRatio: "4/5" } : { gridColumn: "5 / 7", aspectRatio: "4/5" }}/>
+                <Shot project={project} style={mobile ? { aspectRatio: "4/5" } : { gridColumn: "5 / 7", aspectRatio: "4/5" }}/>
+                <Shot project={project} style={mobile ? { aspectRatio: "1/1" } : { gridColumn: "1 / 4", aspectRatio: "1/1" }}/>
+                <Shot project={project} style={mobile ? { aspectRatio: "16/9" } : { gridColumn: "4 / 7", aspectRatio: "16/9" }}/>
+              </div>
+            </section>
+
+            {/* Next project */}
+            <section onClick={function() { onNext(next); }} style={{
+              position: "relative", height: mobile ? "50vh" : "70vh", cursor: "pointer", overflow: "hidden",
+              borderTop: "1px solid var(--line)" }}>
+              <div style={{ position: "absolute", inset: 0, background: coverBg(next), filter: "brightness(0.85)" }}/>
+              <div style={{ position: "absolute", inset: 0, display: "grid", placeItems: "center", textAlign: "center", color: "#fff" }}>
+                <div>
+                  <div style={{ fontFamily: "var(--sans)", fontSize: mobile ? 11 : 13, letterSpacing: "0.02em",
+                    opacity: 0.85, marginBottom: mobile ? 16 : 24, textShadow: "0 1px 12px rgba(0,0,0,0.3)" }}>Next project</div>
+                  <div style={{ fontFamily: "var(--sans)", fontWeight: 400,
+                    fontSize: mobile ? "clamp(32px, 10vw, 56px)" : "clamp(56px, 8vw, 120px)",
+                    lineHeight: 0.9, letterSpacing: "-0.03em", textShadow: "0 2px 40px rgba(0,0,0,0.25)" }}>{next.title}</div>
+                  <div style={{ marginTop: mobile ? 20 : 28, fontFamily: "var(--sans)", fontSize: 12, letterSpacing: "0.02em", opacity: 0.75 }}>Tap to continue &#8594;</div>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          {/* Close - outside smooth scroll content so it stays fixed */}
           <button onClick={onBack} style={{
             position: "fixed", right: mobile ? 16 : 32, top: mobile ? 16 : 32, zIndex: 20,
             background: "rgba(255,255,255,0.85)", backdropFilter: "blur(10px)", WebkitBackdropFilter: "blur(10px)",
             border: "1px solid var(--line)", color: "var(--fg)",
             fontFamily: "var(--sans)", fontSize: 12, letterSpacing: "0.02em",
-            padding: mobile ? "10px 14px" : "12px 18px", cursor: "pointer",
-            borderRadius: 2, fontWeight: 400
-          }}>← Back</button>
-        </div>
+            padding: mobile ? "10px 14px" : "12px 18px", cursor: "pointer", borderRadius: 2, fontWeight: 400
+          }}>&#8592; Back</button>
+        </SmoothScroll>
       );
     }
 
     function MetaRow({ label, value }) {
       return (
-        <div style={{
-          display: "grid", gridTemplateColumns: "90px 1fr", gap: 16,
+        <div style={{ display: "grid", gridTemplateColumns: "90px 1fr", gap: 16,
           padding: "14px 0", borderTop: "1px solid var(--line)",
-          fontFamily: "var(--sans)", fontSize: 12, letterSpacing: "0.02em",
-          fontWeight: 400
-        }}>
+          fontFamily: "var(--sans)", fontSize: 12, letterSpacing: "0.02em", fontWeight: 400 }}>
           <div style={{ color: "var(--fg-dim)" }}>{label}</div>
           <div style={{ color: "var(--fg)" }}>{value}</div>
         </div>
@@ -575,37 +635,27 @@
 
     function Shot({ project, style }) {
       return (
-        <div style={{
-          position: "relative", overflow: "hidden",
-          background: coverBg(project),
-          outline: "1px solid var(--line)",
-          ...style
-        }}>
-          <div style={{
-            position: "absolute", inset: 0,
+        <div style={{ position: "relative", overflow: "hidden", background: coverBg(project), outline: "1px solid var(--line)", ...style }}>
+          <div style={{ position: "absolute", inset: 0,
             background: "linear-gradient(120deg, rgba(255,255,255,0.1) 0%, transparent 40%, rgba(0,0,0,0.08) 100%)",
-            mixBlendMode: "overlay"
-          }}/>
+            mixBlendMode: "overlay" }}/>
         </div>
       );
     }
 
     /* ===================== NAV ===================== */
     function Nav({ onNav, page }) {
-      const mobile = isMobile();
-      const [menuOpen, setMenuOpen] = useState(false);
+      var mobile = isMobile();
+      var stMenu = useState(false);
+      var menuOpen = stMenu[0], setMenuOpen = stMenu[1];
       return (
         <>
-          <nav style={{
-            position: "fixed", top: 0, left: 0, right: 0, zIndex: 50,
+          <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 50,
             padding: mobile ? "20px 16px" : "28px 32px",
-            display: "flex", alignItems: "center",
-            justifyContent: "space-between", pointerEvents: "none"
-          }}>
-            <a href="#" onClick={function(e) { e.preventDefault(); onNav("projects"); setMenuOpen(false); }} style={{
+            display: "flex", alignItems: "center", justifyContent: "space-between", pointerEvents: "none" }}>
+            <a href="/" onClick={function(e) { e.preventDefault(); setMenuOpen(false); onNav("projects"); }} style={{
               display: "flex", alignItems: "center", gap: 8, pointerEvents: "auto", cursor: "pointer",
-              fontFamily: "var(--sans)", textDecoration: "none", color: "var(--fg)"
-            }}>
+              fontFamily: "var(--sans)", textDecoration: "none", color: "var(--fg)" }}>
               <span style={{ display: "inline-block", width: 8, height: 8, background: "var(--fg)", borderRadius: "50%", flexShrink: 0 }}/>
               <div>
                 <div style={{ fontWeight: 500, fontSize: mobile ? 14 : 16, letterSpacing: "-0.01em", lineHeight: 1.2 }}>Vector Studio</div>
@@ -613,11 +663,8 @@
               </div>
             </a>
             {!mobile && (
-              <div style={{
-                display: "flex", alignItems: "center", gap: 28, pointerEvents: "auto",
-                fontFamily: "var(--sans)", fontSize: 13, letterSpacing: "0.01em",
-                color: "var(--fg)", fontWeight: 400
-              }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 28, pointerEvents: "auto",
+                fontFamily: "var(--sans)", fontSize: 13, letterSpacing: "0.01em", color: "var(--fg)", fontWeight: 400 }}>
                 <NavLink active={page === "projects"} label="Projects" onClick={function() { onNav("projects"); }} />
                 <NavLink active={page === "studio"}   label="Studio"   onClick={function() { onNav("studio"); }} />
                 <NavLink active={page === "contact"}  label="Contact"  onClick={function() { onNav("contact"); }} />
@@ -631,39 +678,25 @@
             )}
             {mobile && (
               <button onClick={function() { setMenuOpen(!menuOpen); }} style={{
-                background: "transparent", border: "1px solid var(--fg)",
-                color: "var(--fg)", fontFamily: "var(--sans)", fontSize: 11,
-                letterSpacing: "0.01em", fontWeight: 400,
-                padding: "7px 12px", cursor: "pointer", borderRadius: 2,
-                pointerEvents: "auto"
+                background: "transparent", border: "1px solid var(--fg)", color: "var(--fg)",
+                fontFamily: "var(--sans)", fontSize: 11, letterSpacing: "0.01em", fontWeight: 400,
+                padding: "7px 12px", cursor: "pointer", borderRadius: 2, pointerEvents: "auto"
               }}>{menuOpen ? "Close" : "Menu"}</button>
             )}
           </nav>
           {mobile && menuOpen && (
-            <div style={{
-              position: "fixed", inset: 0, zIndex: 45,
-              background: "rgba(255,255,255,0.97)",
-              display: "flex", flexDirection: "column",
-              justifyContent: "center", alignItems: "center", gap: 28,
-              animation: "fadeIn 0.2s"
-            }}>
+            <div style={{ position: "fixed", inset: 0, zIndex: 45, background: "rgba(255,255,255,0.97)",
+              display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", gap: 28,
+              animation: "fadeIn 0.2s" }}>
               {["Projects", "Studio", "Contact"].map(function(label) { return (
-                <a key={label} href="#" onClick={function(e) { e.preventDefault(); setMenuOpen(false); onNav(label.toLowerCase()); }}
-                  style={{
-                    fontFamily: "var(--sans)", fontSize: 36, fontWeight: 400,
-                    letterSpacing: "-0.02em", color: "var(--fg)", textDecoration: "none"
-                  }}>
-                  {label}
-                </a>
+                <a key={label} href={"/" + label.toLowerCase()} onClick={function(e) { e.preventDefault(); setMenuOpen(false); onNav(label.toLowerCase()); }}
+                  style={{ fontFamily: "var(--sans)", fontSize: 36, fontWeight: 400,
+                    letterSpacing: "-0.02em", color: "var(--fg)", textDecoration: "none" }}>{label}</a>
               ); })}
               <div style={{ height: 1, background: "var(--line)", width: 60, margin: "4px 0" }} />
               <a href="https://portal.vectorstudio.global" target="_blank" rel="noreferrer"
-                style={{
-                  fontFamily: "var(--sans)", fontSize: 18, fontWeight: 400,
-                  letterSpacing: "0.01em", color: "var(--fg-dim)", textDecoration: "none"
-                }}>
-                Portal
-              </a>
+                style={{ fontFamily: "var(--sans)", fontSize: 18, fontWeight: 400,
+                  letterSpacing: "0.01em", color: "var(--fg-dim)", textDecoration: "none" }}>Portal</a>
             </div>
           )}
         </>
@@ -671,15 +704,13 @@
     }
 
     function NavLink({ label, active, onClick }) {
-      const [hover, setHover] = useState(false);
+      var stHover = useState(false);
+      var hover = stHover[0], setHover = stHover[1];
       return (
-        <a href="#" onClick={function(e) { e.preventDefault(); onClick && onClick(); }}
+        <a href={"/" + label.toLowerCase()} onClick={function(e) { e.preventDefault(); onClick && onClick(); }}
           onMouseEnter={function() { setHover(true); }} onMouseLeave={function() { setHover(false); }}
-          style={{
-            color: active || hover ? "var(--fg)" : "var(--fg-dim)",
-            textDecoration: "none", position: "relative", display: "inline-block",
-            transition: "color 0.2s"
-          }}>
+          style={{ color: active || hover ? "var(--fg)" : "var(--fg-dim)",
+            textDecoration: "none", position: "relative", display: "inline-block", transition: "color 0.2s" }}>
           {label}
           {active && <span style={{ position: "absolute", left: 0, right: 0, bottom: -6, height: 1, background: "var(--fg)" }}/>}
         </a>
@@ -687,75 +718,39 @@
     }
 
     /* ===================== STUDIO PAGE ===================== */
-    function SectionDivider() {
-      return <div style={{ height: 1, background: "var(--line)", margin: 0 }} />;
-    }
+    function SectionDivider() { return <div style={{ height: 1, background: "var(--line)", margin: 0 }} />; }
 
     function StudioPage() {
-      const mobile = isMobile();
-      const sectionStyle = { marginTop: mobile ? 80 : 120 };
-      const eyebrowStyle = {
-        fontFamily: "var(--sans)", fontSize: 12, letterSpacing: "0.02em",
-        color: "var(--fg-dim)", marginBottom: mobile ? 20 : 28, fontWeight: 400
-      };
-      const bodyStyle = {
-        fontFamily: "var(--sans)", fontSize: mobile ? 14 : 15, lineHeight: 1.7,
-        color: "var(--fg-mid)", maxWidth: "58ch", textWrap: "pretty"
-      };
+      var mobile = isMobile();
+      var sectionStyle = { marginTop: mobile ? 80 : 120 };
+      var eyebrowStyle = { fontFamily: "var(--sans)", fontSize: 12, letterSpacing: "0.02em", color: "var(--fg-dim)", marginBottom: mobile ? 20 : 28, fontWeight: 400 };
+      var bodyStyle = { fontFamily: "var(--sans)", fontSize: mobile ? 14 : 15, lineHeight: 1.7, color: "var(--fg-mid)", maxWidth: "58ch", textWrap: "pretty" };
 
       return (
-        <div style={{
-          position: "fixed", inset: 0, background: "var(--bg)", overflow: "auto", zIndex: 5,
-          animation: "fadeIn 0.5s", WebkitOverflowScrolling: "touch"
-        }}>
+        <SmoothScroll>
           <div style={{ maxWidth: 1200, margin: "0 auto", padding: mobile ? "120px 20px 80px" : "180px 40px 120px" }}>
-
-            {/* Full statement */}
             <div style={eyebrowStyle}>Studio</div>
-            <h1 style={{
-              fontFamily: "var(--sans)", fontWeight: 400,
+            <h1 style={{ fontFamily: "var(--sans)", fontWeight: 400,
               fontSize: mobile ? "clamp(28px, 8vw, 44px)" : "clamp(44px, 5.5vw, 88px)",
-              lineHeight: 1.0,
-              letterSpacing: "-0.035em", margin: 0, color: "var(--fg)", maxWidth: "18ch"
+              lineHeight: 1.0, letterSpacing: "-0.035em", margin: 0, color: "var(--fg)", maxWidth: "18ch"
             }}>We find the brand by removing everything that isn't it.</h1>
-            <p style={{
-              fontFamily: "var(--sans)",
+            <p style={{ fontFamily: "var(--sans)",
               fontSize: mobile ? "clamp(18px, 5vw, 22px)" : "clamp(20px, 2vw, 26px)",
               lineHeight: 1.4, letterSpacing: "-0.01em", color: "var(--fg-mid)",
               marginTop: mobile ? 24 : 36, maxWidth: "42ch"
-            }}>
-              An artist-led studio. Identity, film, and platforms for category-defining companies.
-            </p>
+            }}>An artist-led studio. Identity, film, and platforms for category-defining companies.</p>
 
-            {/* Opening */}
-            <div style={sectionStyle}>
-              <SectionDivider />
-              <div style={{
-                marginTop: mobile ? 32 : 48,
-                display: "grid",
-                gridTemplateColumns: mobile ? "1fr" : "1fr 2fr",
-                gap: mobile ? 24 : 80,
-                alignItems: "start"
-              }}>
+            <div style={sectionStyle}><SectionDivider />
+              <div style={{ marginTop: mobile ? 32 : 48, display: "grid", gridTemplateColumns: mobile ? "1fr" : "1fr 2fr", gap: mobile ? 24 : 80, alignItems: "start" }}>
                 <div style={eyebrowStyle}>About</div>
-                <div style={bodyStyle}>
-                  <p style={{ margin: 0 }}>
-                    Vector is an artist-led studio working in subtraction. We build brands, films, and platforms for category-defining companies by removing everything that is not essential. The method comes from the practice of our founder, James Jefferys, an artist who has worked in subtraction for years. The result is quieter, sharper, and harder to ignore.
-                  </p>
-                </div>
+                <div style={bodyStyle}><p style={{ margin: 0 }}>Vector is an artist-led studio working in subtraction. We build brands, films, and platforms for category-defining companies by removing everything that is not essential. The method comes from the practice of our founder, James Jefferys, an artist who has worked in subtraction for years. The result is quieter, sharper, and harder to ignore.</p></div>
               </div>
             </div>
 
-            {/* The method - four principles */}
-            <div style={sectionStyle}>
-              <SectionDivider />
+            <div style={sectionStyle}><SectionDivider />
               <div style={{ marginTop: mobile ? 32 : 48 }}>
                 <div style={eyebrowStyle}>The method</div>
-                <div style={{
-                  display: "grid",
-                  gridTemplateColumns: mobile ? "1fr" : "1fr 1fr",
-                  gap: mobile ? 40 : 56
-                }}>
+                <div style={{ display: "grid", gridTemplateColumns: mobile ? "1fr" : "1fr 1fr", gap: mobile ? 40 : 56 }}>
                   {[
                     ["Define by deletion.", "The brand is what remains when nothing else can be removed. We find it by taking away, not by adding on."],
                     ["One idea, carried fully.", "Most brands dilute across many messages and many marks. We choose the single idea that holds, and run it through every surface without compromise."],
@@ -763,14 +758,8 @@
                     ["Subtraction is judgment, not minimalism.", "This is not a style. It is the discipline of deciding what matters and cutting the rest, at every level. The judgment of what to remove is the work."]
                   ].map(function(item, i) { return (
                     <div key={i}>
-                      <div style={{
-                        fontFamily: "var(--sans)", fontSize: mobile ? 11 : 12, letterSpacing: "0.02em",
-                        color: "var(--fg-dim)", marginBottom: 10, fontWeight: 400
-                      }}>{String(i + 1).padStart(2, "0")}</div>
-                      <div style={{
-                        fontFamily: "var(--sans)", fontSize: mobile ? 17 : 20, lineHeight: 1.3,
-                        letterSpacing: "-0.01em", color: "var(--fg)", fontWeight: 400, marginBottom: 10
-                      }}>{item[0]}</div>
+                      <div style={{ fontFamily: "var(--sans)", fontSize: mobile ? 11 : 12, letterSpacing: "0.02em", color: "var(--fg-dim)", marginBottom: 10, fontWeight: 400 }}>{String(i + 1).padStart(2, "0")}</div>
+                      <div style={{ fontFamily: "var(--sans)", fontSize: mobile ? 17 : 20, lineHeight: 1.3, letterSpacing: "-0.01em", color: "var(--fg)", fontWeight: 400, marginBottom: 10 }}>{item[0]}</div>
                       <div style={bodyStyle}>{item[1]}</div>
                     </div>
                   ); })}
@@ -778,26 +767,17 @@
               </div>
             </div>
 
-            {/* What we do */}
-            <div style={sectionStyle}>
-              <SectionDivider />
+            <div style={sectionStyle}><SectionDivider />
               <div style={{ marginTop: mobile ? 32 : 48 }}>
                 <div style={eyebrowStyle}>What we do</div>
-                <div style={{
-                  display: "grid",
-                  gridTemplateColumns: mobile ? "1fr" : "repeat(3, 1fr)",
-                  gap: mobile ? 36 : 48
-                }}>
+                <div style={{ display: "grid", gridTemplateColumns: mobile ? "1fr" : "repeat(3, 1fr)", gap: mobile ? 36 : 48 }}>
                   {[
                     ["Identity", "Brand systems reduced to what is load-bearing. Name, mark, type, and the rules that hold them. Nothing decorative survives."],
                     ["Film and CGI", "Brand and fundraising films, 3D and CGI. One idea per film, told in the fewest beats that carry it."],
                     ["Platform", "Websites, product surfaces, and client platforms. Interfaces stripped to the path that matters."]
                   ].map(function(item) { return (
                     <div key={item[0]}>
-                      <div style={{
-                        fontFamily: "var(--sans)", fontSize: mobile ? 17 : 20, lineHeight: 1.3,
-                        letterSpacing: "-0.01em", color: "var(--fg)", fontWeight: 400, marginBottom: 10
-                      }}>{item[0]}</div>
+                      <div style={{ fontFamily: "var(--sans)", fontSize: mobile ? 17 : 20, lineHeight: 1.3, letterSpacing: "-0.01em", color: "var(--fg)", fontWeight: 400, marginBottom: 10 }}>{item[0]}</div>
                       <div style={bodyStyle}>{item[1]}</div>
                     </div>
                   ); })}
@@ -805,91 +785,51 @@
               </div>
             </div>
 
-            {/* Who it's for */}
-            <div style={sectionStyle}>
-              <SectionDivider />
-              <div style={{
-                marginTop: mobile ? 32 : 48,
-                display: "grid",
-                gridTemplateColumns: mobile ? "1fr" : "1fr 2fr",
-                gap: mobile ? 24 : 80,
-                alignItems: "start"
-              }}>
+            <div style={sectionStyle}><SectionDivider />
+              <div style={{ marginTop: mobile ? 32 : 48, display: "grid", gridTemplateColumns: mobile ? "1fr" : "1fr 2fr", gap: mobile ? 24 : 80, alignItems: "start" }}>
                 <div style={eyebrowStyle}>Who it's for</div>
-                <div style={bodyStyle}>
-                  <p style={{ margin: 0 }}>
-                    We work with founders building something category-defining. Frontier companies in materials, hardware, and deep tech. Premium brands in luxury, lifestyle, and wealth. The common thread is a brand that should say less and mean more.
-                  </p>
-                </div>
+                <div style={bodyStyle}><p style={{ margin: 0 }}>We work with founders building something category-defining. Frontier companies in materials, hardware, and deep tech. Premium brands in luxury, lifestyle, and wealth. The common thread is a brand that should say less and mean more.</p></div>
               </div>
             </div>
 
-            {/* Who we are */}
-            <div style={sectionStyle}>
-              <SectionDivider />
-              <div style={{
-                marginTop: mobile ? 32 : 48,
-                display: "grid",
-                gridTemplateColumns: mobile ? "1fr" : "1fr 2fr",
-                gap: mobile ? 24 : 80,
-                alignItems: "start"
-              }}>
+            <div style={sectionStyle}><SectionDivider />
+              <div style={{ marginTop: mobile ? 32 : 48, display: "grid", gridTemplateColumns: mobile ? "1fr" : "1fr 2fr", gap: mobile ? 24 : 80, alignItems: "start" }}>
                 <div style={eyebrowStyle}>Who we are</div>
                 <div style={bodyStyle}>
-                  <p style={{ margin: 0 }}>
-                    Vector is led by James Jefferys, Principal and Creative Director, and an artist. The studio's method comes directly from his own work, including a three-year subtractive chess project. He brings that discipline to every commission.
-                  </p>
-                  <p style={{ marginTop: "1.2em" }}>
-                    Gabor Homoky, Studio Director. Jan Aguirre, Senior Designer. Winston Ferguson, Development Director.
-                  </p>
-                  <p style={{ marginTop: "1.2em", color: "var(--fg-dim)" }}>
-                    We take on a small number of engagements each year.
-                  </p>
+                  <p style={{ margin: 0 }}>Vector is led by James Jefferys, Principal and Creative Director, and an artist. The studio's method comes directly from his own work, including a three-year subtractive chess project. He brings that discipline to every commission.</p>
+                  <p style={{ marginTop: "1.2em" }}>Gabor Homoky, Studio Director. Jan Aguirre, Senior Designer. Winston Ferguson, Development Director.</p>
+                  <p style={{ marginTop: "1.2em", color: "var(--fg-dim)" }}>We take on a small number of engagements each year.</p>
                 </div>
               </div>
             </div>
 
+            {/* Bottom padding for smooth scroll */}
+            <div style={{ height: 80 }} />
           </div>
-        </div>
+        </SmoothScroll>
       );
     }
 
     /* ===================== CONTACT PAGE ===================== */
     function ContactPage() {
-      const mobile = isMobile();
+      var mobile = isMobile();
       return (
-        <div style={{
-          position: "fixed", inset: 0, background: "var(--bg)", overflow: "auto", zIndex: 5,
-          animation: "fadeIn 0.5s", WebkitOverflowScrolling: "touch"
-        }}>
-          <div style={{
-            maxWidth: 1200, margin: "0 auto", padding: mobile ? "120px 20px 80px" : "180px 40px 120px",
-            display: "flex", flexDirection: "column", justifyContent: "center",
-            minHeight: mobile ? "auto" : "calc(100vh - 300px)"
-          }}>
-            <div style={{
-              fontFamily: "var(--sans)", fontSize: 12, letterSpacing: "0.02em",
-              color: "var(--fg-dim)", marginBottom: mobile ? 32 : 48, fontWeight: 400
-            }}>Contact</div>
-            <div style={{
-              fontFamily: "var(--sans)",
+        <div style={{ position: "fixed", inset: 0, background: "var(--bg)", zIndex: 5,
+          display: "flex", alignItems: "center", justifyContent: "center",
+          animation: "fadeIn 0.5s" }}>
+          <div style={{ maxWidth: 1200, width: "100%", padding: mobile ? "0 20px" : "0 40px" }}>
+            <div style={{ fontFamily: "var(--sans)", fontSize: 12, letterSpacing: "0.02em",
+              color: "var(--fg-dim)", marginBottom: mobile ? 32 : 48, fontWeight: 400 }}>Contact</div>
+            <div style={{ fontFamily: "var(--sans)",
               fontSize: mobile ? "clamp(18px, 5vw, 22px)" : "clamp(20px, 2vw, 26px)",
-              lineHeight: 1.45, letterSpacing: "-0.01em", color: "var(--fg)",
-              maxWidth: "42ch"
-            }}>
-              <p style={{ margin: 0 }}>
-                For new work, write to{" "}
+              lineHeight: 1.45, letterSpacing: "-0.01em", color: "var(--fg)", maxWidth: "42ch" }}>
+              <p style={{ margin: 0 }}>For new work, write to{" "}
                 <a href="mailto:hello@vectorstudio.global" style={{
                   color: "var(--fg)", textDecoration: "none",
                   borderBottom: "1px solid var(--line)", transition: "border-color 0.2s"
                 }} onMouseEnter={function(e) { e.currentTarget.style.borderColor = "var(--fg)"; }}
-                   onMouseLeave={function(e) { e.currentTarget.style.borderColor = "var(--line)"; }}>
-                  hello@vectorstudio.global
-                </a>
-              </p>
-              <p style={{ marginTop: "1.4em", fontSize: mobile ? 14 : 15, color: "var(--fg-dim)", lineHeight: 1.7 }}>
-                We take on a small number of engagements each year and reply to enquiries that are a fit.
-              </p>
+                   onMouseLeave={function(e) { e.currentTarget.style.borderColor = "var(--line)"; }}>hello@vectorstudio.global</a></p>
+              <p style={{ marginTop: "1.4em", fontSize: mobile ? 14 : 15, color: "var(--fg-dim)", lineHeight: 1.7 }}>We take on a small number of engagements each year and reply to enquiries that are a fit.</p>
             </div>
           </div>
         </div>
@@ -898,45 +838,33 @@
 
     /* ===================== INTRO ===================== */
     function IntroOverlay({ onDone }) {
-      const [pct, setPct] = useState(0);
-      const [hidden, setHidden] = useState(false);
-      useEffect(() => {
+      var stPct = useState(0); var pct = stPct[0], setPct = stPct[1];
+      var stHidden = useState(false); var hidden = stHidden[0], setHidden = stHidden[1];
+      useEffect(function() {
         var p = 0;
         var id = setInterval(function() {
           p += Math.max(1, Math.round(Math.random() * 9));
           if (p >= 100) { p = 100; clearInterval(id); setTimeout(function() { setHidden(true); onDone && onDone(); }, 450); }
           setPct(p);
         }, 70);
-        return () => clearInterval(id);
+        return function() { clearInterval(id); };
       }, []);
       return (
-        <div style={{
-          position: "fixed", inset: 0, zIndex: 100, background: "var(--bg)",
+        <div style={{ position: "fixed", inset: 0, zIndex: 100, background: "var(--bg)",
           display: "grid", placeItems: "center",
           transition: "opacity 0.7s, transform 0.9s cubic-bezier(.6,.02,.2,1)",
           opacity: hidden ? 0 : 1, transform: hidden ? "translateY(-100%)" : "translateY(0)",
-          pointerEvents: hidden ? "none" : "auto"
-        }}>
+          pointerEvents: hidden ? "none" : "auto" }}>
           <div style={{ textAlign: "center", color: "var(--fg)", padding: "0 20px" }}>
-            <div style={{
-              fontFamily: "var(--sans)", fontSize: 11, letterSpacing: "0.02em",
-              color: "var(--fg-dim)", marginBottom: 28, fontWeight: 400
-            }}>
-              Vector Studio — An artist-led studio working in subtraction.
-            </div>
-            <div style={{
-              fontFamily: "var(--sans)", fontWeight: 300,
-              fontSize: "clamp(80px, 14vw, 220px)", lineHeight: 0.85, letterSpacing: "-0.05em"
-            }}>
-              {String(pct).padStart(3, "0")}
-            </div>
+            <div style={{ fontFamily: "var(--sans)", fontSize: 11, letterSpacing: "0.02em",
+              color: "var(--fg-dim)", marginBottom: 28, fontWeight: 400 }}>Vector Studio - An artist-led studio working in subtraction.</div>
+            <div style={{ fontFamily: "var(--sans)", fontWeight: 300,
+              fontSize: "clamp(80px, 14vw, 220px)", lineHeight: 0.85, letterSpacing: "-0.05em" }}>{String(pct).padStart(3, "0")}</div>
             <div style={{ marginTop: 36, width: "min(420px, 60vw)", height: 1, background: "var(--line)", position: "relative", margin: "36px auto 0" }}>
               <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: pct + "%", background: "var(--fg)", transition: "width 0.15s linear" }}/>
             </div>
-            <div style={{
-              marginTop: 16, fontFamily: "var(--sans)", fontSize: 11, letterSpacing: "0.02em",
-              color: "var(--fg-dim)", fontWeight: 400
-            }}>Loading · 10 projects · 2026</div>
+            <div style={{ marginTop: 16, fontFamily: "var(--sans)", fontSize: 11, letterSpacing: "0.02em",
+              color: "var(--fg-dim)", fontWeight: 400 }}>Loading - 10 projects - 2026</div>
           </div>
         </div>
       );
@@ -944,26 +872,50 @@
 
     /* ===================== APP ===================== */
     function App() {
-      const [active, setActive] = useState(null);
-      const [introDone, setIntroDone] = useState(false);
-      const [page, setPage] = useState("projects");
+      var route = useRoute();
+      var stIntroDone = useState(false);
+      var introDone = stIntroDone[0], setIntroDone = stIntroDone[1];
 
-      var handleEnter = function(project) { setPage("projects"); setActive(project); };
-      var handleBack = function() { setActive(null); };
-      var handleNext = function(next) { setActive(null); setTimeout(function() { setActive(next); }, 300); };
-      var handleNav = function(p) { setActive(null); setPage(p); };
+      // Skip intro if landing on a non-home page
+      useEffect(function() {
+        if (route.page !== "projects" || route.slug) setIntroDone(true);
+      }, []);
+
+      var handleEnter = function(project) {
+        navigate("/" + project.slug);
+      };
+      var handleBack = function() {
+        navigate("/projects");
+      };
+      var handleNext = function(next) {
+        navigate("/" + next.slug);
+      };
+      var handleNav = function(p) {
+        navigate("/" + p);
+      };
+
+      // Find active project from slug
+      var activeProject = route.slug ? window.PROJECTS.find(function(p) { return p.slug === route.slug; }) : null;
+
+      // Update document title
+      useEffect(function() {
+        if (activeProject) document.title = activeProject.title + " - Vector Studio";
+        else if (route.page === "studio") document.title = "Studio - Vector Studio";
+        else if (route.page === "contact") document.title = "Contact - Vector Studio";
+        else document.title = "Vector Studio";
+      }, [route, activeProject]);
 
       return (
         <>
           {!introDone && <IntroOverlay onDone={function() { setIntroDone(true); }} />}
-          {!active && <Nav onNav={handleNav} page={page} />}
-          {page === "projects" && !active && <Gallery projects={window.PROJECTS} onEnter={handleEnter} />}
-          {page === "studio" && !active && <StudioPage />}
-          {page === "contact" && !active && <ContactPage />}
-          {active && (
+          {!activeProject && <Nav onNav={handleNav} page={route.page} />}
+          {route.page === "projects" && !activeProject && <Gallery projects={window.PROJECTS} onEnter={handleEnter} />}
+          {route.page === "studio" && <StudioPage />}
+          {route.page === "contact" && <ContactPage />}
+          {activeProject && (
             <ProjectDetail
-              key={active.id}
-              project={active}
+              key={activeProject.id}
+              project={activeProject}
               allProjects={window.PROJECTS}
               onBack={handleBack}
               onNext={handleNext}

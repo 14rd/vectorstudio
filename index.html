@@ -604,11 +604,13 @@
           }}>
             <a href="#" onClick={function(e) { e.preventDefault(); onNav("projects"); setMenuOpen(false); }} style={{
               display: "flex", alignItems: "center", gap: 8, pointerEvents: "auto", cursor: "pointer",
-              fontFamily: "var(--sans)", fontWeight: 500, fontSize: mobile ? 14 : 16,
-              letterSpacing: "-0.01em", color: "var(--fg)", textDecoration: "none"
+              fontFamily: "var(--sans)", textDecoration: "none", color: "var(--fg)"
             }}>
-              <span style={{ display: "inline-block", width: 8, height: 8, background: "var(--fg)", borderRadius: "50%" }}/>
-              Vector Studio
+              <span style={{ display: "inline-block", width: 8, height: 8, background: "var(--fg)", borderRadius: "50%", flexShrink: 0 }}/>
+              <div>
+                <div style={{ fontWeight: 500, fontSize: mobile ? 14 : 16, letterSpacing: "-0.01em", lineHeight: 1.2 }}>Vector Studio</div>
+                <div style={{ fontSize: mobile ? 10 : 11, letterSpacing: "0.02em", color: "var(--fg-dim)", fontWeight: 400, marginTop: 2 }}>An artist-led studio working in subtraction.</div>
+              </div>
             </a>
             {!mobile && (
               <div style={{
@@ -619,6 +621,12 @@
                 <NavLink active={page === "projects"} label="Projects" onClick={function() { onNav("projects"); }} />
                 <NavLink active={page === "studio"}   label="Studio"   onClick={function() { onNav("studio"); }} />
                 <NavLink active={page === "contact"}  label="Contact"  onClick={function() { onNav("contact"); }} />
+                <span style={{ width: 1, height: 14, background: "var(--line)" }}/>
+                <a href="https://portal.vectorstudio.global" target="_blank" rel="noreferrer" style={{
+                  fontFamily: "var(--sans)", fontSize: 12, letterSpacing: "0.01em", fontWeight: 400,
+                  color: "var(--fg-dim)", textDecoration: "none", transition: "color 0.2s"
+                }} onMouseEnter={function(e) { e.currentTarget.style.color = "var(--fg)"; }}
+                   onMouseLeave={function(e) { e.currentTarget.style.color = "var(--fg-dim)"; }}>Portal</a>
               </div>
             )}
             {mobile && (
@@ -648,6 +656,14 @@
                   {label}
                 </a>
               ); })}
+              <div style={{ height: 1, background: "var(--line)", width: 60, margin: "4px 0" }} />
+              <a href="https://portal.vectorstudio.global" target="_blank" rel="noreferrer"
+                style={{
+                  fontFamily: "var(--sans)", fontSize: 18, fontWeight: 400,
+                  letterSpacing: "0.01em", color: "var(--fg-dim)", textDecoration: "none"
+                }}>
+                Portal
+              </a>
             </div>
           )}
         </>
@@ -671,78 +687,168 @@
     }
 
     /* ===================== STUDIO PAGE ===================== */
+    function SectionDivider() {
+      return <div style={{ height: 1, background: "var(--line)", margin: 0 }} />;
+    }
+
     function StudioPage() {
       const mobile = isMobile();
+      const sectionStyle = { marginTop: mobile ? 80 : 120 };
+      const eyebrowStyle = {
+        fontFamily: "var(--sans)", fontSize: 12, letterSpacing: "0.02em",
+        color: "var(--fg-dim)", marginBottom: mobile ? 20 : 28, fontWeight: 400
+      };
+      const bodyStyle = {
+        fontFamily: "var(--sans)", fontSize: mobile ? 14 : 15, lineHeight: 1.7,
+        color: "var(--fg-mid)", maxWidth: "58ch", textWrap: "pretty"
+      };
+
       return (
         <div style={{
           position: "fixed", inset: 0, background: "var(--bg)", overflow: "auto", zIndex: 5,
           animation: "fadeIn 0.5s", WebkitOverflowScrolling: "touch"
         }}>
           <div style={{ maxWidth: 1200, margin: "0 auto", padding: mobile ? "120px 20px 80px" : "180px 40px 120px" }}>
-            <div style={{
-              fontFamily: "var(--sans)", fontSize: 12, letterSpacing: "0.02em",
-              color: "var(--fg-dim)", marginBottom: 28, fontWeight: 400
-            }}>Studio — Practice</div>
+
+            {/* Full statement */}
+            <div style={eyebrowStyle}>Studio</div>
             <h1 style={{
               fontFamily: "var(--sans)", fontWeight: 400,
-              fontSize: mobile ? "clamp(32px, 10vw, 48px)" : "clamp(48px, 6.5vw, 112px)",
-              lineHeight: 0.95,
-              letterSpacing: "-0.035em", margin: 0, color: "var(--fg)", maxWidth: "14ch"
-            }}>Identity, made clear.</h1>
-            <div style={{
-              marginTop: mobile ? 56 : 96,
-              display: "grid",
-              gridTemplateColumns: mobile ? "1fr" : "1fr 2fr",
-              gap: mobile ? 32 : 80,
-              alignItems: "start"
+              fontSize: mobile ? "clamp(28px, 8vw, 44px)" : "clamp(44px, 5.5vw, 88px)",
+              lineHeight: 1.0,
+              letterSpacing: "-0.035em", margin: 0, color: "var(--fg)", maxWidth: "18ch"
+            }}>We find the brand by removing everything that isn't it.</h1>
+            <p style={{
+              fontFamily: "var(--sans)",
+              fontSize: mobile ? "clamp(18px, 5vw, 22px)" : "clamp(20px, 2vw, 26px)",
+              lineHeight: 1.4, letterSpacing: "-0.01em", color: "var(--fg-mid)",
+              marginTop: mobile ? 24 : 36, maxWidth: "42ch"
             }}>
+              An artist-led studio. Identity, film, and platforms for category-defining companies.
+            </p>
+
+            {/* Opening */}
+            <div style={sectionStyle}>
+              <SectionDivider />
               <div style={{
-                fontFamily: "var(--sans)", fontSize: 12, letterSpacing: "0.02em",
-                color: "var(--fg-dim)", fontWeight: 400, lineHeight: 2
+                marginTop: mobile ? 32 : 48,
+                display: "grid",
+                gridTemplateColumns: mobile ? "1fr" : "1fr 2fr",
+                gap: mobile ? 24 : 80,
+                alignItems: "start"
               }}>
-                <div>On the studio</div>
-                <div style={{ color: "var(--fg)" }}>2026</div>
-              </div>
-              <div style={{
-                fontFamily: "var(--sans)",
-                fontSize: mobile ? "clamp(18px, 5vw, 22px)" : "clamp(20px, 2vw, 26px)",
-                lineHeight: 1.45, letterSpacing: "-0.01em", color: "var(--fg)",
-                textWrap: "pretty", maxWidth: "58ch"
-              }}>
-                <p style={{ margin: 0 }}>
-                  At Vector Studio, our work is about identity. In a world overloaded with noise, we uncover what makes a brand singular and bring its essence into focus, showing the world not just what it is, but what it stands for.
-                </p>
-                <p style={{ marginTop: "1.4em" }}>
-                  The mediums we use — CGI, branding, 3D or digital experiences — are gateways, not the goal. True impact comes from direction with magnitude: we position brands precisely, giving them the clarity, the force, and the presence to be noticed, understood, and remembered.
-                </p>
+                <div style={eyebrowStyle}>About</div>
+                <div style={bodyStyle}>
+                  <p style={{ margin: 0 }}>
+                    Vector is an artist-led studio working in subtraction. We build brands, films, and platforms for category-defining companies by removing everything that is not essential. The method comes from the practice of our founder, James Jefferys, an artist who has worked in subtraction for years. The result is quieter, sharper, and harder to ignore.
+                  </p>
+                </div>
               </div>
             </div>
 
-            <div style={{
-              marginTop: mobile ? 80 : 140,
-              display: "grid",
-              gridTemplateColumns: mobile ? "1fr 1fr" : "repeat(4, 1fr)",
-              gap: mobile ? 24 : 32,
-              borderTop: "1px solid var(--line)", paddingTop: mobile ? 28 : 40
-            }}>
-              {[
-                ["Identity", "Marks, systems, voice."],
-                ["Digital", "Sites, products, motion."],
-                ["CGI & 3D", "Rendered worlds as proof."],
-                ["Art direction", "From first sketch to final frame."]
-              ].map(function(item) { return (
-                <div key={item[0]}>
-                  <div style={{
-                    fontFamily: "var(--sans)", fontSize: 12, letterSpacing: "0.02em",
-                    color: "var(--fg-dim)", marginBottom: 10, fontWeight: 400
-                  }}>{item[0]}</div>
-                  <div style={{
-                    fontFamily: "var(--sans)", fontSize: mobile ? 15 : 18, lineHeight: 1.35,
-                    letterSpacing: "-0.01em", color: "var(--fg)"
-                  }}>{item[1]}</div>
+            {/* The method - four principles */}
+            <div style={sectionStyle}>
+              <SectionDivider />
+              <div style={{ marginTop: mobile ? 32 : 48 }}>
+                <div style={eyebrowStyle}>The method</div>
+                <div style={{
+                  display: "grid",
+                  gridTemplateColumns: mobile ? "1fr" : "1fr 1fr",
+                  gap: mobile ? 40 : 56
+                }}>
+                  {[
+                    ["Define by deletion.", "The brand is what remains when nothing else can be removed. We find it by taking away, not by adding on."],
+                    ["One idea, carried fully.", "Most brands dilute across many messages and many marks. We choose the single idea that holds, and run it through every surface without compromise."],
+                    ["Negative space does the work.", "What is left out defines what is there. Restraint creates the contrast that makes the essential read."],
+                    ["Subtraction is judgment, not minimalism.", "This is not a style. It is the discipline of deciding what matters and cutting the rest, at every level. The judgment of what to remove is the work."]
+                  ].map(function(item, i) { return (
+                    <div key={i}>
+                      <div style={{
+                        fontFamily: "var(--sans)", fontSize: mobile ? 11 : 12, letterSpacing: "0.02em",
+                        color: "var(--fg-dim)", marginBottom: 10, fontWeight: 400
+                      }}>{String(i + 1).padStart(2, "0")}</div>
+                      <div style={{
+                        fontFamily: "var(--sans)", fontSize: mobile ? 17 : 20, lineHeight: 1.3,
+                        letterSpacing: "-0.01em", color: "var(--fg)", fontWeight: 400, marginBottom: 10
+                      }}>{item[0]}</div>
+                      <div style={bodyStyle}>{item[1]}</div>
+                    </div>
+                  ); })}
                 </div>
-              ); })}
+              </div>
             </div>
+
+            {/* What we do */}
+            <div style={sectionStyle}>
+              <SectionDivider />
+              <div style={{ marginTop: mobile ? 32 : 48 }}>
+                <div style={eyebrowStyle}>What we do</div>
+                <div style={{
+                  display: "grid",
+                  gridTemplateColumns: mobile ? "1fr" : "repeat(3, 1fr)",
+                  gap: mobile ? 36 : 48
+                }}>
+                  {[
+                    ["Identity", "Brand systems reduced to what is load-bearing. Name, mark, type, and the rules that hold them. Nothing decorative survives."],
+                    ["Film and CGI", "Brand and fundraising films, 3D and CGI. One idea per film, told in the fewest beats that carry it."],
+                    ["Platform", "Websites, product surfaces, and client platforms. Interfaces stripped to the path that matters."]
+                  ].map(function(item) { return (
+                    <div key={item[0]}>
+                      <div style={{
+                        fontFamily: "var(--sans)", fontSize: mobile ? 17 : 20, lineHeight: 1.3,
+                        letterSpacing: "-0.01em", color: "var(--fg)", fontWeight: 400, marginBottom: 10
+                      }}>{item[0]}</div>
+                      <div style={bodyStyle}>{item[1]}</div>
+                    </div>
+                  ); })}
+                </div>
+              </div>
+            </div>
+
+            {/* Who it's for */}
+            <div style={sectionStyle}>
+              <SectionDivider />
+              <div style={{
+                marginTop: mobile ? 32 : 48,
+                display: "grid",
+                gridTemplateColumns: mobile ? "1fr" : "1fr 2fr",
+                gap: mobile ? 24 : 80,
+                alignItems: "start"
+              }}>
+                <div style={eyebrowStyle}>Who it's for</div>
+                <div style={bodyStyle}>
+                  <p style={{ margin: 0 }}>
+                    We work with founders building something category-defining. Frontier companies in materials, hardware, and deep tech. Premium brands in luxury, lifestyle, and wealth. The common thread is a brand that should say less and mean more.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Who we are */}
+            <div style={sectionStyle}>
+              <SectionDivider />
+              <div style={{
+                marginTop: mobile ? 32 : 48,
+                display: "grid",
+                gridTemplateColumns: mobile ? "1fr" : "1fr 2fr",
+                gap: mobile ? 24 : 80,
+                alignItems: "start"
+              }}>
+                <div style={eyebrowStyle}>Who we are</div>
+                <div style={bodyStyle}>
+                  <p style={{ margin: 0 }}>
+                    Vector is led by James Jefferys, Principal and Creative Director, and an artist. The studio's method comes directly from his own work, including a three-year subtractive chess project. He brings that discipline to every commission.
+                  </p>
+                  <p style={{ marginTop: "1.2em" }}>
+                    Gabor Homoky, Studio Director. Jan Aguirre, Senior Designer. Winston Ferguson, Development Director.
+                  </p>
+                  <p style={{ marginTop: "1.2em", color: "var(--fg-dim)" }}>
+                    We take on a small number of engagements each year.
+                  </p>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       );
@@ -756,56 +862,34 @@
           position: "fixed", inset: 0, background: "var(--bg)", overflow: "auto", zIndex: 5,
           animation: "fadeIn 0.5s", WebkitOverflowScrolling: "touch"
         }}>
-          <div style={{ maxWidth: 1200, margin: "0 auto", padding: mobile ? "120px 20px 80px" : "180px 40px 120px" }}>
+          <div style={{
+            maxWidth: 1200, margin: "0 auto", padding: mobile ? "120px 20px 80px" : "180px 40px 120px",
+            display: "flex", flexDirection: "column", justifyContent: "center",
+            minHeight: mobile ? "auto" : "calc(100vh - 300px)"
+          }}>
             <div style={{
               fontFamily: "var(--sans)", fontSize: 12, letterSpacing: "0.02em",
-              color: "var(--fg-dim)", marginBottom: 28, fontWeight: 400
-            }}>Contact — Get in touch</div>
-            <h1 style={{
-              fontFamily: "var(--sans)", fontWeight: 400,
-              fontSize: mobile ? "clamp(32px, 10vw, 48px)" : "clamp(48px, 6.5vw, 112px)",
-              lineHeight: 0.95,
-              letterSpacing: "-0.035em", margin: 0, color: "var(--fg)", maxWidth: "14ch"
-            }}>Let's make something singular.</h1>
-
+              color: "var(--fg-dim)", marginBottom: mobile ? 32 : 48, fontWeight: 400
+            }}>Contact</div>
             <div style={{
-              marginTop: mobile ? 56 : 96,
-              display: "grid",
-              gridTemplateColumns: mobile ? "1fr" : "1fr 1fr",
-              gap: mobile ? 48 : 64,
-              borderTop: "1px solid var(--line)", paddingTop: mobile ? 32 : 48
+              fontFamily: "var(--sans)",
+              fontSize: mobile ? "clamp(18px, 5vw, 22px)" : "clamp(20px, 2vw, 26px)",
+              lineHeight: 1.45, letterSpacing: "-0.01em", color: "var(--fg)",
+              maxWidth: "42ch"
             }}>
-              <div>
-                <div style={{
-                  fontFamily: "var(--sans)", fontSize: 12, letterSpacing: "0.02em",
-                  color: "var(--fg-dim)", marginBottom: 18, fontWeight: 400
-                }}>Email</div>
+              <p style={{ margin: 0 }}>
+                For new work, write to{" "}
                 <a href="mailto:hello@vectorstudio.global" style={{
-                  fontFamily: "var(--sans)",
-                  fontSize: mobile ? "clamp(20px, 6vw, 28px)" : "clamp(28px, 3.4vw, 48px)",
-                  letterSpacing: "-0.02em", color: "var(--fg)", textDecoration: "none",
-                  borderBottom: "1px solid transparent", transition: "border-color 0.2s",
-                  wordBreak: "break-all"
+                  color: "var(--fg)", textDecoration: "none",
+                  borderBottom: "1px solid var(--line)", transition: "border-color 0.2s"
                 }} onMouseEnter={function(e) { e.currentTarget.style.borderColor = "var(--fg)"; }}
-                   onMouseLeave={function(e) { e.currentTarget.style.borderColor = "transparent"; }}>
+                   onMouseLeave={function(e) { e.currentTarget.style.borderColor = "var(--line)"; }}>
                   hello@vectorstudio.global
                 </a>
-              </div>
-              <div>
-                <div style={{
-                  fontFamily: "var(--sans)", fontSize: 12, letterSpacing: "0.02em",
-                  color: "var(--fg-dim)", marginBottom: 18, fontWeight: 400
-                }}>Instagram</div>
-                <a href="https://instagram.com/vector___studio" target="_blank" rel="noreferrer" style={{
-                  fontFamily: "var(--sans)",
-                  fontSize: mobile ? "clamp(20px, 6vw, 28px)" : "clamp(28px, 3.4vw, 48px)",
-                  letterSpacing: "-0.02em", color: "var(--fg)", textDecoration: "none",
-                  borderBottom: "1px solid transparent", transition: "border-color 0.2s"
-                }} onMouseEnter={function(e) { e.currentTarget.style.borderColor = "var(--fg)"; }}
-                   onMouseLeave={function(e) { e.currentTarget.style.borderColor = "transparent"; }}>
-                  @vector___studio
-                </a>
-              </div>
+              </p>
+              <p style={{ marginTop: "1.4em", fontSize: mobile ? 14 : 15, color: "var(--fg-dim)", lineHeight: 1.7 }}>
+                We take on a small number of engagements each year and reply to enquiries that are a fit.
+              </p>
             </div>
           </div>
         </div>
@@ -838,7 +922,7 @@
               fontFamily: "var(--sans)", fontSize: 11, letterSpacing: "0.02em",
               color: "var(--fg-dim)", marginBottom: 28, fontWeight: 400
             }}>
-              Vector Studio — A studio for moving pictures,<br/>surfaces and systems.
+              Vector Studio — An artist-led studio working in subtraction.
             </div>
             <div style={{
               fontFamily: "var(--sans)", fontWeight: 300,
